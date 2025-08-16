@@ -1,6 +1,11 @@
 # Build stage
 FROM golang:alpine AS builder
 
+# Allow cross-compilation by passing target OS/ARCH at build time
+# Example: podman build --platform linux/arm64 --build-arg TARGETOS=linux --build-arg TARGETARCH=arm64 -t portfolio:pi .
+ARG TARGETOS=linux
+ARG TARGETARCH=amd64
+
 # Set working directory
 WORKDIR /app
 
@@ -16,8 +21,8 @@ RUN go mod download
 # Copy source code
 COPY . .
 
-# Build the application
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+# Build the application for the specified target
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -a -installsuffix cgo -o main .
 
 # Final stage
 FROM alpine:latest
