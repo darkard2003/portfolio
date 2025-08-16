@@ -12,7 +12,7 @@
       "url": "https://github.com/darkard2003"
     }
   },
-  "summary": "Highly motivated developer with 2+ years of experience in creating robust mobile applications with Flutter and Dart. Proficient in back-end development with Go, designing and implementing scalable services and APIs. Seeking to leverage technical skills and a passion for innovation in a challenging software development role.",
+  "summary": "Passionate full-stack developer who loves turning ideas into reality through code. I specialize in building beautiful mobile experiences with Flutter and robust backend systems with Go. When I'm not coding, you'll find me exploring new technologies, customizing my Linux setup, or strategizing over a chess game.",
   "projects": [
     {
       "title": "Wormhole",
@@ -22,7 +22,7 @@
         "Gin"
       ],
       "url": "https://github.com/darkard2003/wormhole",
-      "description": "Zero Knowledge, Self Hosted, Stack like file transfer between devices."
+      "description": "Ever wanted to transfer files securely without cloud services? Wormhole is a zero-knowledge, self-hosted solution that creates secure tunnels between your devices for instant file sharing."
     },
     {
       "title": "BlueConnect",
@@ -32,7 +32,7 @@
         "IoT"
       ],
       "url": "https://github.com/darkard2003/blue_connect.git",
-      "description": "A controller and serial terminal for bluetooth communication with IoT devices like ESP32."
+      "description": "Turn your phone into a powerful IoT controller! This Flutter app lets you communicate with ESP32 and other Bluetooth devices through an intuitive interface with serial terminal capabilities."
     },
     {
       "title": "BlueSpeedControl",
@@ -41,7 +41,7 @@
         "C++"
       ],
       "url": "https://github.com/darkard2003/blueSpeedControl.git",
-      "description": "Embedded firmware for a Bluetooth-controlled car using ESP32."
+      "description": "The perfect companion to BlueConnect - embedded firmware that transforms an ESP32 into a Bluetooth-controlled smart car. Features smooth motor control and responsive wireless communication."
     },
     {
       "title": "Better Scanner",
@@ -50,7 +50,7 @@
         "Flutter",
         "Dart"
       ],
-      "description": "A better QR code scanner and generator."
+      "description": "QR codes made simple and powerful. Scan anything, generate custom codes, and manage your QR history - all wrapped in a clean, intuitive Flutter interface."
     },
     {
       "title": "darkXnotes",
@@ -61,7 +61,7 @@
         "Flutter-Web",
         "Firebase"
       ],
-      "description": "A cross-platform note-taking app for Android and Web with hidden folders and encryption."
+      "description": "Your thoughts, secured and synced. A cross-platform note-taking app featuring encrypted storage, hidden folders for privacy, and seamless sync across Android and web platforms."
     },
     {
       "title": "Eentrack",
@@ -71,7 +71,7 @@
         "QR"
       ],
       "url": "https://github.com/statuscode-418/EenTrack",
-      "description": "A QR-based crowd management application for events."
+      "description": "Revolutionizing event management through smart QR technology. Built for seamless crowd tracking and attendee management, making events smoother for organizers and participants alike."
     }
   ],
   "skills": {
