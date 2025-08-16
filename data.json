@@ -1,0 +1,109 @@
+{
+  "name": "Kaushik Chowdhury",
+  "contacts": {
+    "email": "kaushikchowdhury231@gmail.com",
+    "phone": "+91 6291920532",
+    "linkedin": {
+      "handle": "Kaushik Chowdhury",
+      "url": "https://www.linkedin.com/in/darkard2003/"
+    },
+    "github": {
+      "handle": "darkard2003",
+      "url": "https://github.com/darkard2003"
+    }
+  },
+  "summary": "Highly motivated developer with 2+ years of experience in creating robust mobile applications with Flutter and Dart. Proficient in back-end development with Go, designing and implementing scalable services and APIs. Seeking to leverage technical skills and a passion for innovation in a challenging software development role.",
+  "projects": [
+    {
+      "title": "Wormhole",
+      "technologies": [
+        "GoLang",
+        "MySQL",
+        "Gin"
+      ],
+      "url": "https://github.com/darkard2003/wormhole",
+      "description": "Zero Knowledge, Self Hosted, Stack like file transfer between devices."
+    },
+    {
+      "title": "BlueConnect",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "IoT"
+      ],
+      "url": "https://github.com/darkard2003/blue_connect.git",
+      "description": "A controller and serial terminal for bluetooth communication with IoT devices like ESP32."
+    },
+    {
+      "title": "BlueSpeedControl",
+      "technologies": [
+        "Arduino",
+        "C++"
+      ],
+      "url": "https://github.com/darkard2003/blueSpeedControl.git",
+      "description": "Embedded firmware for a Bluetooth-controlled car using ESP32."
+    },
+    {
+      "title": "Better Scanner",
+      "url": "https://github.com/darkard2003/better_scanner",
+      "technologies": [
+        "Flutter",
+        "Dart"
+      ],
+      "description": "A better QR code scanner and generator."
+    },
+    {
+      "title": "darkXnotes",
+      "url": "https://github.com/darkard2003/darkXnotes.git",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Flutter-Web",
+        "Firebase"
+      ],
+      "description": "A cross-platform note-taking app for Android and Web with hidden folders and encryption."
+    },
+    {
+      "title": "Eentrack",
+      "technologies": [
+        "Flutter",
+        "Firebase",
+        "QR"
+      ],
+      "url": "https://github.com/statuscode-418/EenTrack",
+      "description": "A QR-based crowd management application for events."
+    }
+  ],
+  "skills": {
+    "languages": [
+      "Dart",
+      "GoLang",
+      "Python",
+      "Kotlin",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "PL/SQL"
+    ],
+    "frameworks": [
+      "Flutter",
+      "Gin",
+      "React",
+      "Android",
+      "SpringBoot",
+      "Arduino"
+    ],
+    "databases": [
+      "Firebase",
+      "MongoDB",
+      "PostgreSQL",
+      "MariaDB"
+    ]
+  },
+  "hobbies": [
+    "Playing Chess",
+    "OS Customization (Ricing)",
+    "Exploring New Technologies",
+    "Reading Tech Blogs"
+  ]
+}

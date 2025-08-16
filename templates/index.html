@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <title>{{ .Name }}'s Portfolio</title>
+  <style>
+    .hero {
+      background-color: var(--card-background-color);
+      border-radius: var(--card-border-radius);
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    article {
+      margin-bottom: 0;
+    }
+
+    article footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    a[role="button"]>svg {
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      width: auto;
+      height: 1rem;
+    }
+
+    h2>svg,
+    p>small>svg {
+      margin-right: 0.75rem;
+      vertical-align: middle;
+      width: auto;
+      height: 1.5rem;
+    }
+  </style>
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+  <header class="container">
+    <nav>
+      <ul>
+        <li>
+          <strong><a href="/" style="text-decoration: none;">{{ .Name }}</a></strong>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/static/resume.pdf" download="resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <section id="home" class="hero">
+      <h2><i data-feather="user"></i>About Me</h2>
+      <blockquote>
+        {{ .Summary }}
+        <footer><cite>- {{ .Name }}</cite></footer>
+      </blockquote>
+    </section>
+
+
+
+    <section id="projects">
+      <h2><i data-feather="briefcase"></i>My Projects</h2>
+      <div class="project-grid">
+        {{ range .Projects }}
+        <article>
+          <header>
+            <a href="{{ .URL }}" target="_blank" style="text-decoration: none;"><strong>{{ .Title }}</strong></a>
+          </header>
+          <p>{{ .Description }}</p>
+          <footer>
+            {{ range .Technologies }}
+            <kbd>{{ . }}</kbd>
+            {{ end }}
+          </footer>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2><i data-feather="send"></i>Get in Touch</h2>
+      <div class="grid">
+        <a role="button" href="mailto:{{ .Contacts.Email }}"><i data-feather="mail"></i>Email</a>
+        <a role="button" class="secondary" href="{{ .Contacts.LinkedIn.URL }}" target="_blank"><i
+            data-feather="linkedin"></i>LinkedIn</a>
+        <a role="button" class="contrast" href="{{ .Contacts.Github.URL }}" target="_blank"><i
+            data-feather="github"></i>GitHub</a>
+      </div>
+    </section>
+  </main>
+  <footer class="container">
+    <hr>
+    <p><small><i data-feather="code"></i>Built with Go, HTMX and PicoCSS.</small></p>
+  </footer>
+  <script>
+    feather.replace()
+  </script>
+</body>
+
+</html>
