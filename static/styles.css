@@ -288,9 +288,8 @@ a[role="button"].linkedin-btn {
   --pico-primary-focus-border: var(--color-light-greyish-blue);
 }
 
-/* Cycling titles animation with typing effect */
 #cycling-title {
-  min-height: 1.5em; /* Prevent layout shift */
+  min-height: 1.5em; 
   font-weight: 500;
   color: var(--pico-muted-color);
 }
@@ -307,7 +306,6 @@ a[role="button"].linkedin-btn {
   51%, 100% { opacity: 0; }
 }
 
-/* Additional styling for highlights using light grey */
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -329,7 +327,6 @@ a[role="button"].linkedin-btn {
   color: var(--color-light-grey);
 }
 
-/* Override navbar colors */
 nav a {
   color: var(--pico-muted-color);
 }
