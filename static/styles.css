@@ -281,3 +281,22 @@ a[role="button"].linkedin-btn {
   --pico-primary-focus-background: #004d73;
   --pico-primary-focus-border: #004d73;
 }
+
+/* Cycling titles animation with typing effect */
+#cycling-title {
+  min-height: 1.5em; /* Prevent layout shift */
+  font-weight: 500;
+  color: var(--pico-primary);
+}
+
+#cycling-title::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: var(--pico-primary);
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

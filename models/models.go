@@ -10,10 +10,11 @@ type Portfolio struct {
 }
 
 type Contacts struct {
-	Email    string `json:"email"`
-	Phone    string `json:"phone"`
-	LinkedIn Social `json:"linkedin"`
-	Github   Social `json:"github"`
+	Email    string   `json:"email"`
+	Titles   []string `json:"titles"`
+	Phone    string   `json:"phone"`
+	LinkedIn Social   `json:"linkedin"`
+	Github   Social   `json:"github"`
 }
 
 type Social struct {

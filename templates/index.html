@@ -31,7 +31,13 @@
     </nav>
   </header>
   <main class="container">
-    <section id="home" class="hero" style="position: relative;">
+    <section id="welcome" class="hero" style="position: relative;">
+      <div class="welcome-content">
+        <h1>Hii I'm {{ .Name }}</h1>
+        <p id="cycling-title"></p>
+      </div>
+    </section>
+    <section id="about" class="hero" style="position: relative;">
       <div>
         <h2><i data-feather="user"></i>About Me</h2>
         <blockquote>
@@ -96,7 +102,11 @@
     <hr>
     <p><small><i data-feather="code"></i> Built with Go, HTMX and PicoCSS.</small></p>
   </footer>
-  <script src="/static/script-light.js"></script>
+  <script src="/static/feather.min.js"></script>
+  <script src="/static/script.js"></script>
+  <script>
+    feather.replace();
+  </script>
 </body>
 
 </html>
