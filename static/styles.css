@@ -1,3 +1,44 @@
+/* Three-tone color scheme override */
+:root {
+  --color-dark-greyish-blue: #3a4750;
+  --color-light-greyish-blue: #5a6a78;
+  --color-light-grey: #e8e9ea;
+  
+  /* Override PicoCSS primary colors */
+  --pico-primary: var(--color-dark-greyish-blue);
+  --pico-primary-background: var(--color-dark-greyish-blue);
+  --pico-primary-border: var(--color-dark-greyish-blue);
+  --pico-primary-hover-background: var(--color-light-greyish-blue);
+  --pico-primary-hover-border: var(--color-light-greyish-blue);
+  --pico-primary-focus-background: var(--color-light-greyish-blue);
+  --pico-primary-focus-border: var(--color-light-greyish-blue);
+  
+  /* Secondary colors using lighter shade */
+  --pico-secondary-background: var(--color-light-greyish-blue);
+  --pico-secondary-border: var(--color-light-greyish-blue);
+  --pico-secondary-hover-background: var(--color-dark-greyish-blue);
+  --pico-secondary-hover-border: var(--color-dark-greyish-blue);
+}
+
+[data-theme="dark"] {
+  --color-dark-greyish-blue: #4a5663;
+  --color-light-greyish-blue: #6a7a88;
+  --color-light-grey: #d0d1d2;
+  
+  --pico-primary: var(--color-light-grey);
+  --pico-primary-background: var(--color-dark-greyish-blue);
+  --pico-primary-border: var(--color-dark-greyish-blue);
+  --pico-primary-hover-background: var(--color-light-greyish-blue);
+  --pico-primary-hover-border: var(--color-light-greyish-blue);
+  --pico-primary-focus-background: var(--color-light-greyish-blue);
+  --pico-primary-focus-border: var(--color-light-greyish-blue);
+  
+  --pico-secondary-background: var(--color-light-greyish-blue);
+  --pico-secondary-border: var(--color-light-greyish-blue);
+  --pico-secondary-hover-background: var(--color-dark-greyish-blue);
+  --pico-secondary-hover-border: var(--color-dark-greyish-blue);
+}
+
 .hero {
   padding: calc(var(--pico-spacing) * 2);
   text-align: center;
@@ -18,37 +59,6 @@
   margin: 0 auto;
   font-size: 1.1rem;
   line-height: 1.7;
-}
-
-/* Scroll indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: calc(var(--pico-spacing) * 2);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--pico-muted-color);
-  animation: bounce 2s infinite;
-}
-
-.scroll-indicator svg {
-  width: 24px;
-  height: 24px;
-  margin-top: calc(var(--pico-spacing) * 0.5);
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  40% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-  60% {
-    transform: translateX(-50%) translateY(-5px);
-  }
 }
 
 .project-grid {
@@ -78,12 +88,12 @@
 .project-header {
   padding: var(--pico-spacing);
   border-bottom: var(--pico-border-width) solid var(--pico-card-border-color);
-  background: linear-gradient(135deg, var(--pico-primary-background) 0%, var(--pico-primary-hover-background) 100%);
+  background: linear-gradient(135deg, var(--color-dark-greyish-blue) 0%, var(--color-light-greyish-blue) 100%);
   border-radius: var(--pico-border-radius) var(--pico-border-radius) 0 0;
 }
 
 .project-title {
-  color: var(--pico-primary-inverse);
+  color: var(--color-light-grey);
   font-weight: 600;
   font-size: 1.25rem;
   margin: 0;
@@ -198,10 +208,6 @@ kbd {
     line-height: 1.6;
   }
 
-  .scroll-indicator {
-    display: none;
-  }
-
   .nav-menu {
     display: none;
     position: absolute;
@@ -263,40 +269,84 @@ kbd {
   }
 }
 
-/* Custom button colors */
+/* Custom button colors using three-tone scheme */
 a[role="button"].email-btn {
-  --pico-primary-background: #6c757d;
-  --pico-primary-border: #6c757d;
-  --pico-primary-hover-background: #5a6268;
-  --pico-primary-hover-border: #5a6268;
-  --pico-primary-focus-background: #545b62;
-  --pico-primary-focus-border: #545b62;
+  --pico-primary-background: var(--color-light-greyish-blue);
+  --pico-primary-border: var(--color-light-greyish-blue);
+  --pico-primary-hover-background: var(--color-dark-greyish-blue);
+  --pico-primary-hover-border: var(--color-dark-greyish-blue);
+  --pico-primary-focus-background: var(--color-dark-greyish-blue);
+  --pico-primary-focus-border: var(--color-dark-greyish-blue);
 }
 
 a[role="button"].linkedin-btn {
-  --pico-primary-background: #0077b5;
-  --pico-primary-border: #0077b5;
-  --pico-primary-hover-background: #005885;
-  --pico-primary-hover-border: #005885;
-  --pico-primary-focus-background: #004d73;
-  --pico-primary-focus-border: #004d73;
+  --pico-primary-background: var(--color-dark-greyish-blue);
+  --pico-primary-border: var(--color-dark-greyish-blue);
+  --pico-primary-hover-background: var(--color-light-greyish-blue);
+  --pico-primary-hover-border: var(--color-light-greyish-blue);
+  --pico-primary-focus-background: var(--color-light-greyish-blue);
+  --pico-primary-focus-border: var(--color-light-greyish-blue);
 }
 
 /* Cycling titles animation with typing effect */
 #cycling-title {
   min-height: 1.5em; /* Prevent layout shift */
   font-weight: 500;
-  color: var(--pico-primary);
+  color: var(--pico-muted-color);
 }
 
 #cycling-title::after {
   content: '|';
   animation: blink 1s infinite;
-  color: var(--pico-primary);
+  color: var(--pico-muted-color);
   margin-left: 2px;
 }
 
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
+}
+
+/* Additional styling for highlights using light grey */
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-light-grey);
+}
+
+.tech-tag {
+  background: var(--color-light-grey);
+  color: var(--color-dark-greyish-blue);
+  padding: calc(var(--pico-spacing) * 0.25) calc(var(--pico-spacing) * 0.5);
+  border-radius: calc(var(--pico-border-radius) * 0.5);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .tech-tag {
+  background: var(--color-light-greyish-blue);
+  color: var(--color-light-grey);
+}
+
+/* Override navbar colors */
+nav a {
+  color: var(--pico-muted-color);
+}
+
+nav a:hover {
+  color: var(--color-light-greyish-blue);
+}
+
+[data-theme="dark"] nav a {
+  color: var(--pico-muted-color);
+}
+
+[data-theme="dark"] nav a:hover {
+  color: var(--color-light-greyish-blue);
+}
+
+/* Override any remaining primary inverse colors */
+[data-theme="dark"] .project-title {
+  color: var(--color-light-grey);
 }
