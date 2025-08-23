@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"html/template"
 	"io/fs"
-	"log"
 	"net/http"
 	"os"
 	"portfolio/models"
@@ -22,37 +21,47 @@ var templates embed.FS
 //go:embed data.json
 var data []byte
 
-func main() {
-	staticFS, err := fs.Sub(static, "static")
+// Filesystems
+var staticFS fs.FS
+var templateFS fs.FS
+
+// portfolio models
+var portfolio models.Portfolio
+
+func init() {
+	var err error
+	staticFS, err = fs.Sub(static, "static")
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
-	templateFS, err := fs.Sub(templates, "templates")
+
+	templateFS, err = fs.Sub(templates, "templates")
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
-	router := gin.Default()
-
-	router.StaticFS("/static", http.FS(staticFS))
-	templ := template.Must(template.ParseFS(templateFS, "*.html"))
-	router.SetHTMLTemplate(templ)
-
-	var portfolio models.Portfolio
 	err = json.Unmarshal(data, &portfolio)
 	if err != nil {
 		panic(err)
 	}
+}
+
+func main() {
+	templ := template.Must(template.ParseFS(templateFS, "*.html"))
+
+	router := gin.Default()
+	router.SetHTMLTemplate(templ)
+	router.StaticFS("/static", http.FS(staticFS))
 
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", portfolio)
 	})
 
-	// Use PORT environment variable or default to 8080
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
+
 	router.Run(":" + port)
 
 }
