@@ -1,0 +1,34 @@
+# .air.toml
+# Config file for air: https://github.com/cosmtrek/air
+
+# The working directory for the project.
+root = "."
+# A temporary directory for air to use.
+tmp_dir = "tmp"
+
+[build]
+# This is the most important part. Instead of re-defining the build steps,
+# we just tell air to run our existing `make build` command.
+# This command will run `make generate` (for templ and tailwind) and then `go build`.
+cmd = "go build -o bin/main cmd/web/main.go"
+
+# The binary that will be produced by the build command. Air will run this.
+bin = "bin/main"
+
+# File extensions and directories to watch for changes.
+include_ext = ["go", "templ"]
+include_dir = ["cmd", "internals", "web"]
+
+# Directories to ignore to prevent unnecessary reloads.
+exclude_dir = ["bin", "tmp", "scratch", "node_modules", "static"]
+
+# Add a small delay to handle rapid file saves.
+delay = 1000 # ms
+
+[log]
+# Show timestamps in the log output.
+time = true
+
+[misc]
+# Delete the temporary directory on exit.
+clean_on_exit = true

@@ -1,0 +1,26 @@
+package layout
+
+templ BaseLayout(title string, nav templ.Component) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title }</title>
+			<link rel="stylesheet" href="static/css/app.css"/>
+		</head>
+		<body class="bg-gray-900 text-white">
+			<header>
+				@nav
+			</header>
+			<main>
+				{ children... }
+			</main>
+			<footer>
+				<p>
+					Made with ❤️ by <a href="https://github.com/darkard2003">darkard2003</a>
+				</p>
+			</footer>
+		</body>
+	</html>
+}

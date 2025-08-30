@@ -1,0 +1,20 @@
+package pages
+
+import "portfolio/web/view/layout"
+import "portfolio/web/view/components/nav"
+
+templ homeNav() {
+	@nav.BaseNav() {
+		<div></div>
+		<div class="nav-items flex flex-wrap items-center justify-center">
+			<a href="/" class="nav-item text-gray-500">Home</a>
+		</div>
+	}
+}
+
+templ HomePage() {
+	@layout.BaseLayout("Home", homeNav()) {
+		<h1>Welcome to my portfolio </h1>
+		<p>This is my portfolio website </p>
+	}
+}
