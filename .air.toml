@@ -16,7 +16,7 @@ cmd = "go build -o bin/main cmd/web/main.go"
 bin = "bin/main"
 
 # File extensions and directories to watch for changes.
-include_ext = ["go", "templ"]
+include_ext = ["go"]
 include_dir = ["cmd", "internals", "web"]
 
 # Directories to ignore to prevent unnecessary reloads.

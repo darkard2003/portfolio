@@ -1,0 +1,14 @@
+package pages
+
+import "portfolio/web/view/components/nav"
+import "portfolio/web/view/layout"
+
+templ testNav() {
+	@nav.BaseNav()
+}
+
+templ TestPage() {
+	@layout.BaseLayout("Test", testNav()) {
+		<h1>Hello World</h1>
+	}
+}

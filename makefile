@@ -6,6 +6,7 @@ build: generate
 generate:
 	go generate ./...
 	npx tailwindcss -i ./web/css/input.css -o ./static/css/app.css  --minify
+
 .PHONY: run
 run: generate
 	go run ./cmd/web/main.go
@@ -20,11 +21,10 @@ tailwind-watch:
 
 .PHONY: templ-watch
 templ-watch:
-	templ generate --watch
+		templ generate --watch --proxy="http://localhost:8080" --cmd="go run ./cmd/web/main.go"
 
 .PHONY: tmux-run
 tmux-run:
 	tmux split-window -h "make tailwind-watch"
 	tmux split-window -v "make templ-watch"
-	air
 

@@ -20,6 +20,7 @@ func main() {
 	router.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	router.HandleFunc("/", handelers.IndexHandeler)
+	router.HandleFunc("/test", handelers.TestHandeler)
 
 	fmt.Println("Listening on port", port)
 	http.ListenAndServe(":"+port, router)
