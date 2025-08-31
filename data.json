@@ -1,0 +1,115 @@
+{
+  "name": "Kaushik Chowdhury",
+  "titles": [
+    "Full Stack Developer",
+    "Tech Enthusiast",
+    "Chess Player"
+  ],
+  "contacts": {
+    "email": "kaushikchowdhury231@gmail.com",
+    "phone": "+91 6291920532",
+    "linkedin": {
+      "handle": "Kaushik Chowdhury",
+      "url": "https://www.linkedin.com/in/darkard2003/"
+    },
+    "github": {
+      "handle": "darkard2003",
+      "url": "https://github.com/darkard2003"
+    }
+  },
+  "summary": "Passionate full-stack developer who loves turning ideas into reality through code. I specialize in building beautiful mobile experiences with Flutter and robust backend systems with Go. When I'm not coding, you'll find me exploring new technologies, customizing my Linux setup, or strategizing over a chess game.",
+  "projects": [
+    {
+      "title": "Wormhole",
+      "technologies": [
+        "GoLang",
+        "MySQL",
+        "Gin"
+      ],
+      "url": "https://github.com/darkard2003/wormhole",
+      "description": "Ever wanted to transfer files securely without cloud services? Wormhole is a zero-knowledge, self-hosted solution that creates secure tunnels between your devices for instant file sharing."
+    },
+    {
+      "title": "BlueConnect",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "IoT"
+      ],
+      "url": "https://github.com/darkard2003/blue_connect.git",
+      "description": "Turn your phone into a powerful IoT controller! This Flutter app lets you communicate with ESP32 and other Bluetooth devices through an intuitive interface with serial terminal capabilities."
+    },
+    {
+      "title": "BlueSpeedControl",
+      "technologies": [
+        "Arduino",
+        "C++"
+      ],
+      "url": "https://github.com/darkard2003/blueSpeedControl.git",
+      "description": "The perfect companion to BlueConnect - embedded firmware that transforms an ESP32 into a Bluetooth-controlled smart car. Features smooth motor control and responsive wireless communication."
+    },
+    {
+      "title": "Better Scanner",
+      "url": "https://github.com/darkard2003/better_scanner",
+      "technologies": [
+        "Flutter",
+        "Dart"
+      ],
+      "description": "QR codes made simple and powerful. Scan anything, generate custom codes, and manage your QR history - all wrapped in a clean, intuitive Flutter interface."
+    },
+    {
+      "title": "darkXnotes",
+      "url": "https://github.com/darkard2003/darkXnotes.git",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Flutter-Web",
+        "Firebase"
+      ],
+      "description": "Your thoughts, secured and synced. A cross-platform note-taking app featuring encrypted storage, hidden folders for privacy, and seamless sync across Android and web platforms."
+    },
+    {
+      "title": "Eentrack",
+      "technologies": [
+        "Flutter",
+        "Firebase",
+        "QR"
+      ],
+      "url": "https://github.com/statuscode-418/EenTrack",
+      "description": "Revolutionizing event management through smart QR technology. Built for seamless crowd tracking and attendee management, making events smoother for organizers and participants alike."
+    }
+  ],
+  "skills": {
+    "languages": [
+      "Dart",
+      "GoLang",
+      "Python",
+      "Kotlin",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "PL/SQL"
+    ],
+    "frameworks": [
+      "Flutter",
+      "Gin",
+      "React",
+      "Android",
+      "SpringBoot",
+      "Arduino"
+    ],
+    "databases": [
+      "Firebase",
+      "MongoDB",
+      "PostgreSQL",
+      "MariaDB"
+    ]
+  },
+  "hobbies": [
+    "Playing Chess",
+    "OS Customization (Ricing)",
+    "Exploring New Technologies",
+    "Reading Tech Blogs"
+  ]
+}
+
