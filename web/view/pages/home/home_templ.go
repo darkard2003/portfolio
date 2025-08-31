@@ -45,7 +45,7 @@ func homeNav() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div></div><div class=\"nav-items hidden md:flex flex-wrap items-center justify-center\"><a href=\"#about\" class=\"nav-item text-gray-500 mr-2\">About</a> <a href=\"#projects\" class=\"nav-item text-gray-500 mr-2\">Projects</a></div><div class=\"nev-menu-btn md:hidden\"><!-- TODO: Add a menu button for mobile --></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div></div><div class=\"nav-items hidden md:flex flex-wrap items-center justify-center\"><a href=\"#about\" class=\"nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300\">About</a> <a href=\"#projects\" class=\"nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300\">Projects</a> <a href=\"#contact\" class=\"nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300\">Contact</a></div><div class=\"nev-menu-btn md:hidden\"><!-- TODO: Add a menu button for mobile --></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -92,7 +92,7 @@ func HomePage(data models.DataModel) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"flex flex-col min-h-screen w-full\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"container mx-auto px-6 py-16 md:py-24\"><div class=\"max-w-4xl mx-auto\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -100,7 +100,19 @@ func HomePage(data models.DataModel) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div>")
+			templ_7745c5c3_Err = AboutSection(data).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = ProjectSection(data.Projects).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = ContactSection(data.Contacts).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

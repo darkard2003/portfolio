@@ -42,7 +42,7 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</title><link rel=\"stylesheet\" href=\"static/css/app.css\"></head><body class=\"bg-gray-900 text-white\"><header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</title><link rel=\"stylesheet\" href=\"static/css/app.css\"></head><body class=\"bg-gray-900 text-white\" style=\"background-image: url('data:image/svg+xml,%3Csvg width=\\'20\\' height=\\'20\\' viewBox=\\'0 0 20 20\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'%23374151\\' fill-opacity=\\'0.1\\' fill-rule=\\'evenodd\\'%3E%3Ccircle cx=\\'3\\' cy=\\'3\\' r=\\'0.5\\'/%3E%3Ccircle cx=\\'13\\' cy=\\'13\\' r=\\'0.5\\'/%3E%3C/g%3E%3C/svg%3E');\"><header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -58,7 +58,20 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</main><footer><p>Made with ❤️ by <a href=\"https://github.com/darkard2003\">darkard2003</a></p></footer></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</main><footer class=\"bg-gray-800 border-t border-gray-700 py-8 mt-16\"><div class=\"container mx-auto px-6\"><div class=\"max-w-4xl mx-auto text-center\"><p class=\"text-gray-400 text-sm\">© ")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var3 string
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs("2025")
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/layout/base.templ`, Line: 23, Col: 18}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, " Portfolio. Made with ❤️ using <span class=\"text-white font-medium\">Go</span> & <span class=\"text-white font-medium\">Templ</span></p><p class=\"text-gray-500 text-xs mt-2\">Designed & Built by <a href=\"https://github.com/darkard2003\" class=\"text-white hover:text-gray-300 transition-colors duration-300 font-medium\" target=\"_blank\" rel=\"noopener noreferrer\">darkard2003</a></p></div></div></footer></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

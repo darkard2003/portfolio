@@ -1,2 +1,49 @@
 @import "tailwindcss" source("../view");
 
+@layer base {
+  :root {
+    --primary-color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .project-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-8px);
+  }
+
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-down {
+    animation: fade-in-down 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+}
+
