@@ -22,6 +22,7 @@ func (rw *responseWriter) WriteHeader(code int) {
 
 func Logger(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Get the ip also
 		start := time.Now()
 		rw := newResponseWriter(w)
 		next.ServeHTTP(rw, r)
@@ -29,6 +30,6 @@ func Logger(next http.Handler) http.Handler {
 
 		duration := end.Sub(start)
 
-		log.Printf("%s %s %s %d %s", r.Method, r.RequestURI, r.Proto, rw.statusCode, duration)
+		log.Printf("%s %s FROM %s %d %s", r.Method, r.RequestURI, r.RemoteAddr, rw.statusCode, duration)
 	})
 }

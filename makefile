@@ -28,3 +28,16 @@ tmux-run:
 	tmux split-window -h "make tailwind-watch"
 	tmux split-window -v "make templ-watch"
 
+# Docker commands
+.PHONY: docker-build
+docker-build:
+	docker build -t portfolio-gotth .
+
+.PHONY: docker-run
+
+docker-run:
+	docker run -p 8080:8080 portfolio-gotth
+
+.PHONY: docker-build-run
+docker-build-run: docker-build docker-run
+
