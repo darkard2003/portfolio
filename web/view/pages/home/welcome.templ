@@ -2,7 +2,11 @@ package home
 
 templ WelcomeSection(name string) {
 	<div class="flex flex-col flex-grow justify-center items-center h-64 mb-16 md:mb-24">
-		<h1 class="text-4xl font-bold text-center text-gray-400 animate-fade-in-down">Hii, I'm { name }</h1>
-		<p class="text-gray-400 text-center animate-fade-in-up">Welcome to my portfolio</p>
+		<h1 class="text-xl md:text-2xl lg:text-4xl font-bold text-center text-gray-400 hover:text-white transition-colors duration-500">
+			Hii, I'm { name }
+		</h1>
+		<p class="text-gray-400 text-center hover:text-gray-300 transition-colors duration-300">
+			Welcome to my portfolio
+		</p>
 	</div>
 }

@@ -4,46 +4,25 @@
   :root {
     --primary-color: #ffffff;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer utilities {
+  /* Simple hover effects for project cards */
   .project-card {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
   }
   
   .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
   }
 
-  @keyframes fade-in-down {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fade-in-up {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in-down {
-    animation: fade-in-down 0.8s ease-out forwards;
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out 0.4s forwards;
-    opacity: 0;
+  /* Subtle hover effects */
+  .hover-glow:hover {
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
   }
 }
 

@@ -1,3 +1,7 @@
+# IDEs
+.idea/
+.vscode/
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -39,7 +43,6 @@ Thumbs.db
 # TypeScript / JavaScript
 /dist/
 /build/
-*.js
 *.js.map
 *.tsbuildinfo
 npm-debug.log*

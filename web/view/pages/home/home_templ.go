@@ -11,6 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import "portfolio/web/view/layout"
 import "portfolio/web/view/components/nav"
 import "portfolio/internals/models"
+import "portfolio/web/view/components"
 
 func homeNav() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -33,6 +34,10 @@ func homeNav() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div x-data=\"{ isOpen: false }\" class=\"relative\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
 		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -45,13 +50,33 @@ func homeNav() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div></div><div class=\"nav-items hidden md:flex flex-wrap items-center justify-center\"><a href=\"#about\" class=\"nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300\">About</a> <a href=\"#projects\" class=\"nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300\">Projects</a> <a href=\"#contact\" class=\"nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300\">Contact</a></div><div class=\"nev-menu-btn md:hidden\"><!-- TODO: Add a menu button for mobile --></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div></div><div class=\"nav-items hidden md:flex flex-wrap items-center justify-center\"><a href=\"#about\" class=\"nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300 animate-fade-in animate-delay-200\">About</a> <a href=\"#projects\" class=\"nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300 animate-fade-in animate-delay-300\">Projects</a> <a href=\"#contact\" class=\"nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300 animate-fade-in animate-delay-400\">Contact</a></div><div class=\"nev-menu-btn flex md:hidden \"><button @click=\"isOpen = !isOpen\" type=\"button\" class=\"inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white\" aria-controls=\"mobile-menu\" aria-expanded=\"false\"><span class=\"sr-only\">Open main menu</span><div x-show=\"!isOpen\" class=\"block\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = components.Icon("hamburger", "text-white w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500").Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div x-show=\"isOpen\" class=\"block\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = components.Icon("x-mark", "text-white w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500").Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></button></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
 		templ_7745c5c3_Err = nav.BaseNav().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div x-show=\"isOpen\" class=\"md:hidden absolute w-full\" id=\"mobile-menu\" x-transition.opacity><div class=\"px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800\"><a href=\"#about\" @click=\"isOpen = false\" class=\"block text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">About</a> <a href=\"#projects\" @click=\"isOpen = false\" class=\"block text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Projects</a> <a href=\"#contact\" @click=\"isOpen = false\" class=\"block text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Contact</a></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -92,7 +117,7 @@ func HomePage(data models.DataModel) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"container mx-auto px-6 py-16 md:py-24\"><div class=\"max-w-4xl mx-auto\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"container mx-auto px-6 py-16 md:py-24\"><div class=\"max-w-4xl mx-auto\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -104,7 +129,7 @@ func HomePage(data models.DataModel) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = ProjectSection(data.Projects).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = ProjectSection(data.Projects, data.ProjectTechnologies).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -112,7 +137,7 @@ func HomePage(data models.DataModel) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

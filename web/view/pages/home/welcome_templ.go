@@ -29,20 +29,20 @@ func WelcomeSection(name string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col flex-grow justify-center items-center h-64 mb-16 md:mb-24\"><h1 class=\"text-4xl font-bold text-center text-gray-400 animate-fade-in-down\">Hii, I'm ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col flex-grow justify-center items-center h-64 mb-16 md:mb-24\"><h1 class=\"text-xl md:text-2xl lg:text-4xl font-bold text-center text-gray-400 hover:text-white transition-colors duration-500\">Hii, I'm ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/welcome.templ`, Line: 5, Col: 95}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/welcome.templ`, Line: 6, Col: 18}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><p class=\"text-gray-400 text-center animate-fade-in-up\">Welcome to my portfolio</p></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><p class=\"text-gray-400 text-center hover:text-gray-300 transition-colors duration-300\">Welcome to my portfolio</p></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

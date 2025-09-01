@@ -3,19 +3,37 @@ package home
 import "portfolio/web/view/layout"
 import "portfolio/web/view/components/nav"
 import "portfolio/internals/models"
+import "portfolio/web/view/components"
 
 templ homeNav() {
-	@nav.BaseNav() {
-		<div></div>
-		<div class="nav-items hidden md:flex flex-wrap items-center justify-center">
-			<a href="#about" class="nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300">About</a>
-			<a href="#projects" class="nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300">Projects</a>
-			<a href="#contact" class="nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300">Contact</a>
+	<div x-data="{ isOpen: false }" class="relative">
+		@nav.BaseNav() {
+			<div></div>
+			<div class="nav-items hidden md:flex flex-wrap items-center justify-center">
+				<a href="#about" class="nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300 animate-fade-in animate-delay-200">About</a>
+				<a href="#projects" class="nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300 animate-fade-in animate-delay-300">Projects</a>
+				<a href="#contact" class="nav-item text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300 animate-fade-in animate-delay-400">Contact</a>
+			</div>
+			<div class="nev-menu-btn flex md:hidden ">
+				<button @click="isOpen = !isOpen" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+					<span class="sr-only">Open main menu</span>
+					<div x-show="!isOpen" class="block">
+						@components.Icon("hamburger", "text-white w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500")
+					</div>
+					<div x-show="isOpen" class="block">
+						@components.Icon("x-mark", "text-white w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500")
+					</div>
+				</button>
+			</div>
+		}
+		<div x-show="isOpen" class="md:hidden absolute w-full" id="mobile-menu" x-transition.opacity>
+			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800">
+				<a href="#about" @click="isOpen = false" class="block text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">About</a>
+				<a href="#projects" @click="isOpen = false" class="block text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">Projects</a>
+				<a href="#contact" @click="isOpen = false" class="block text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">Contact</a>
+			</div>
 		</div>
-		<div class="nev-menu-btn md:hidden">
-			<!-- TODO: Add a menu button for mobile -->
-		</div>
-	}
+	</div>
 }
 
 templ HomePage(data models.DataModel) {
@@ -24,7 +42,7 @@ templ HomePage(data models.DataModel) {
 			<div class="max-w-4xl mx-auto">
 				@WelcomeSection(data.Name)
 				@AboutSection(data)
-				@ProjectSection(data.Projects)
+				@ProjectSection(data.Projects, data.ProjectTechnologies)
 				@ContactSection(data.Contacts)
 			</div>
 		</div>

@@ -25,6 +25,7 @@ func init() {
 	jsonParser.Decode(&data)
 
 	data.AllSkills = utils.GetAllTechnologies(data)
+	data.ProjectTechnologies = utils.GetProjectTechnologies(data.Projects)
 }
 
 func main() {

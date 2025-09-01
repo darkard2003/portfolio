@@ -31,14 +31,14 @@ func AboutSection(data models.DataModel) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"about\" class=\"mb-16 md:mb-24\"><h2 class=\"text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight\">About Me</h2><p class=\"text-lg text-gray-400 leading-relaxed\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"about\" class=\"mb-16 md:mb-24\"><h2 class=\"text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight\">About Me</h2><p class=\"text-lg text-gray-400 leading-relaxed hover:text-gray-300 transition-colors duration-300\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(data.Summary)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/about.templ`, Line: 9, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/about.templ`, Line: 11, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {

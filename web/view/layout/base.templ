@@ -1,5 +1,7 @@
 package layout
 
+import "portfolio/web/view/components"
+
 templ BaseLayout(title string, nav templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en">
@@ -8,6 +10,7 @@ templ BaseLayout(title string, nav templ.Component) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<title>{ title }</title>
 			<link rel="stylesheet" href="static/css/app.css"/>
+			<script src="static/scripts/alpine.min.js" defer></script>
 		</head>
 		<body class="bg-gray-900 text-white" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23374151\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'0.5\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'0.5\'/%3E%3C/g%3E%3C/svg%3E');">
 			<header>
@@ -20,11 +23,22 @@ templ BaseLayout(title string, nav templ.Component) {
 				<div class="container mx-auto px-6">
 					<div class="max-w-4xl mx-auto text-center">
 						<p class="text-gray-400 text-sm">
-							© { "2025" } Portfolio. Made with ❤️ using <span class="text-white font-medium">Go</span> & <span class="text-white font-medium">Templ</span>
+							© { "2025" } Portfolio. Made with 
+							@components.Icon("heart", "w-4 h-4 inline text-red-500")
+							using <span class="text-white font-medium">Go</span> & <span class="text-white font-medium">Templ</span>
+							by,
 						</p>
-						<p class="text-gray-500 text-xs mt-2">
-							Designed & Built by <a href="https://github.com/darkard2003" class="text-white hover:text-gray-300 transition-colors duration-300 font-medium" target="_blank" rel="noopener noreferrer">darkard2003</a>
-						</p>
+						<a
+							href="https://github.com/darkard2003"
+							class="text-white hover:text-blue-200  font-medium inline-flex items-center gap-1 hover:scale-105 transform transition-transform duration-300"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							@components.Icon("github", "w-4 h-4")
+							<p class="text-white font-medium">
+								darkard2003
+							</p>
+						</a>
 					</div>
 				</div>
 			</footer>

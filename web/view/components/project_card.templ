@@ -2,14 +2,17 @@ package components
 
 import "portfolio/internals/models"
 
-templ ProjectCard(project models.Project) {
-	<a href={ templ.URL(project.Url) } target="_blank" rel="noopener noreferrer" class="block h-full">
-		<div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:shadow-lg hover:shadow-blue-500/20 project-card h-full flex flex-col">
-			<h3 class="text-xl font-semibold text-white mb-2">{ project.Title }</h3>
+templ ProjectCard(project models.Project, class string) {
+	<a href={ templ.URL(project.Url) } target="_blank" rel="noopener noreferrer" class="block h-full group">
+		<div class={ "bg-gray-800 p-6 rounded-lg border border-gray-700 hover:shadow-lg hover:shadow-blue-500/20 project-card h-full flex flex-col hover-lift hover-glow", class }>
+			<div class="flex items-start justify-between mb-2">
+				<h3 class="text-xl font-semibold text-white">{ project.Title }</h3>
+				@Icon("external-link", "w-5 h-5 text-gray-400 group-hover:text-white transition-all duration-300 transform group-hover:scale-110")
+			</div>
 			<p class="text-gray-400 mb-4 flex-grow">{ project.Description }</p>
 			<div class="flex flex-wrap gap-2 mt-auto">
 				for _, tech := range project.Technologies {
-					<span class="bg-blue-900/50 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full transition-transform duration-300 hover:scale-110 cursor-pointer">{ tech }</span>
+					<span class="bg-blue-900/50 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full transition-all duration-300  cursor-pointer  hover:bg-blue-800/50">{ tech }</span>
 				}
 			</div>
 		</div>
