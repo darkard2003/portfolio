@@ -1,6 +1,7 @@
 package components
 
 import "portfolio/internals/models"
+import "fmt"
 
 templ ProjectCard(project models.Project, class string) {
 	<a href={ templ.URL(project.Url) } target="_blank" rel="noopener noreferrer" class="block h-full group">
@@ -12,7 +13,10 @@ templ ProjectCard(project models.Project, class string) {
 			<p class="text-gray-400 mb-4 flex-grow">{ project.Description }</p>
 			<div class="flex flex-wrap gap-2 mt-auto">
 				for _, tech := range project.Technologies {
-					<span class="bg-blue-900/50 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full transition-all duration-300  cursor-pointer  hover:bg-blue-800/50">{ tech }</span>
+					<span
+						class="text-xs font-medium px-2.5 py-0.5 rounded-full transition-all duration-300 cursor-pointer"
+						:class={ fmt.Sprintf("selected === '%s' ? 'bg-blue-500 text-white' : 'bg-blue-900/50 text-blue-300 hover:bg-blue-800/70'", tech) }
+					>{ tech }</span>
 				}
 			</div>
 		</div>
