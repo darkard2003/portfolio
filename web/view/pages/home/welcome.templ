@@ -2,10 +2,10 @@ package home
 
 templ WelcomeSection(name string) {
 	<div class="flex flex-col flex-grow justify-center items-center h-64 mb-16 md:mb-24">
-		<h1 class="text-xl md:text-2xl lg:text-4xl font-bold text-center text-gray-400 light:text-gray-700 hover:text-white transition-colors duration-500">
+		<h1 class="text-xl md:text-2xl lg:text-4xl font-bold text-center text-gray-400 light:text-gray-700 hover:text-[var(--primary)] transition-colors duration-500">
 			Hii, I'm { name }
 		</h1>
-		<p class="text-gray-400 light:text-gray-700 text-center hover:text-gray-300 transition-colors duration-300">
+		<p class="text-gray-400 light:text-gray-700 text-center hover:text-gray-300 light:hover:text-gray-700 transition-colors duration-300">
 			Welcome to my portfolio
 		</p>
 	</div>

@@ -4,7 +4,7 @@ import "portfolio/web/view/components"
 
 templ BaseLayout(title string, nav templ.Component) {
 	<!DOCTYPE html>
-	<html lang="en" x-data :class="{ 'light': !$store.darkMode.on}">
+	<html lang="en" class="transition-colors duration-300" x-data :class="{ 'light': !$store.darkMode.on}">
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
