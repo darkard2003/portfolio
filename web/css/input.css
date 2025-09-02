@@ -11,6 +11,8 @@
 }
 
 @layer utilities {
+  [x-cloak] { display: none !important; }
+
   /* Simple hover effects for project cards */
   .project-card {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
