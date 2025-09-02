@@ -31,7 +31,7 @@ func AboutSection(data models.DataModel) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"about\" class=\"mb-16 md:mb-24\"><h2 class=\"text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight\">About Me</h2><p class=\"text-lg text-gray-400 leading-relaxed hover:text-gray-300 transition-colors duration-300\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"about\" class=\"mb-16 md:mb-24\"><h2 class=\"text-3xl md:text-4xl font-bold text-white light:text-gray-800 mb-6 tracking-tight\">About Me</h2><p class=\"text-lg text-gray-400 light:text-gray-700 leading-relaxed hover:text-[var(--primary)] transition-colors duration-300\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

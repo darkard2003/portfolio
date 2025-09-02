@@ -39,11 +39,11 @@ func ProjectSection(projects []models.Project, projectTechnologies []string) tem
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Icon("code-bracket", "w-8 h-8 text-blue-400").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Icon("code-bracket", "w-8 h-8 text-blue-400 light:text-blue-600").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<h2 class=\"text-3xl md:text-4xl font-bold text-white tracking-tight\">Projects</h2></div><div id=\"project-technologies\" class=\"flex flex-wrap gap-2 mb-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<h2 class=\"text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800\">Projects</h2></div><div id=\"project-technologies\" class=\"flex flex-wrap gap-2 mb-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -53,9 +53,9 @@ func ProjectSection(projects []models.Project, projectTechnologies []string) tem
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var2 string
-			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("selected === '%s' ? 'bg-blue-500 text-white' : 'bg-blue-900/50 text-blue-300 hover:bg-blue-800/70'", tech))
+			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("selected === '%s' ? 'bg-blue-500 text-white light:bg-blue-900' : 'bg-blue-900/50 text-blue-300 light:bg-blue-700 light:text-white hover:bg-blue-800'", tech))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/projectsection.templ`, Line: 19, Col: 133}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/projectsection.templ`, Line: 19, Col: 183}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {

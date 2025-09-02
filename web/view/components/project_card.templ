@@ -5,17 +5,17 @@ import "fmt"
 
 templ ProjectCard(project models.Project, class string) {
 	<a href={ templ.URL(project.Url) } target="_blank" rel="noopener noreferrer" class="block h-full group">
-		<div class={ "bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:shadow-blue-500/20 project-card h-full flex flex-col hover-lift hover-glow", class }>
+		<div class={ "light:bg-white bg-gray-800 p-6 rounded-lg border light:border-gray-200 border-gray-700 hover:shadow-lg hover:shadow-blue-500/20 project-card h-full flex flex-col hover-lift hover-glow", class }>
 			<div class="flex items-start justify-between mb-2">
-				<h3 class="text-xl font-semibold text-gray-900 dark:text-white">{ project.Title }</h3>
-				@Icon("external-link", "w-5 h-5 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transition-all duration-300 transform group-hover:scale-110")
+				<h3 class="text-xl font-semibold light:text-gray-900 text-white">{ project.Title }</h3>
+				@Icon("external-link", "w-5 h-5 text-gray-400 light:group-hover:text-gray-900 group-hover:text-white transition-all duration-300 transform group-hover:scale-110")
 			</div>
-			<p class="text-gray-600 dark:text-gray-400 mb-4 flex-grow">{ project.Description }</p>
+			<p class="light:text-gray-600 text-gray-400 mb-4 flex-grow">{ project.Description }</p>
 			<div class="flex flex-wrap gap-2 mt-auto">
 				for _, tech := range project.Technologies {
 					<span
 						class="text-xs font-medium px-2.5 py-0.5 rounded-full transition-all duration-300 cursor-pointer"
-						:class={ fmt.Sprintf("selected === '%s' ? 'bg-blue-500 text-white' : 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800/70'", tech) }
+						:class={ fmt.Sprintf("selected === '%s' ? 'bg-blue-500 text-white light:bg-blue-900' : 'bg-blue-900/50 text-blue-300 light:bg-blue-700 light:text-white hover:bg-blue-800'", tech) }
 					>{ tech }</span>
 				}
 			</div>

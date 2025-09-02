@@ -8,11 +8,14 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-blue-50: oklch(97% 0.014 254.604);
     --color-blue-100: oklch(93.2% 0.032 255.585);
     --color-blue-200: oklch(88.2% 0.059 254.128);
     --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-blue-500: oklch(62.3% 0.214 259.815);
+    --color-blue-600: oklch(54.6% 0.245 262.881);
+    --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-blue-800: oklch(42.4% 0.199 265.638);
     --color-blue-900: oklch(37.9% 0.146 265.522);
     --color-gray-100: oklch(96.7% 0.003 264.542);
@@ -24,6 +27,7 @@
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-gray-900: oklch(21% 0.034 264.665);
+    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-4xl: 56rem;
@@ -262,6 +266,12 @@
   .mt-auto {
     margin-top: auto;
   }
+  .mr-1 {
+    margin-right: calc(var(--spacing) * 1);
+  }
+  .mr-2 {
+    margin-right: calc(var(--spacing) * 2);
+  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
@@ -276,6 +286,9 @@
   }
   .mb-16 {
     margin-bottom: calc(var(--spacing) * 16);
+  }
+  .ml-2 {
+    margin-left: calc(var(--spacing) * 2);
   }
   .block {
     display: block;
@@ -433,6 +446,12 @@
   }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
+  }
+  .bg-blue-700 {
+    background-color: var(--color-blue-700);
+  }
+  .bg-blue-900 {
+    background-color: var(--color-blue-900);
   }
   .bg-blue-900\/50 {
     background-color: color-mix(in srgb, oklch(37.9% 0.146 265.522) 50%, transparent);
@@ -629,6 +648,13 @@
       }
     }
   }
+  .group-hover\:text-white {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-white);
+      }
+    }
+  }
   .hover\:-translate-y-0\.5 {
     &:hover {
       @media (hover: hover) {
@@ -651,6 +677,20 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-blue-200);
+      }
+    }
+  }
+  .hover\:bg-blue-400 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-blue-400);
+      }
+    }
+  }
+  .hover\:bg-blue-800 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-blue-800);
       }
     }
   }
@@ -682,6 +722,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-gray-700);
+      }
+    }
+  }
+  .hover\:text-\[var\(--primary\)\] {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--primary);
       }
     }
   }
@@ -860,9 +907,64 @@
       }
     }
   }
+  .light\:border-gray-200 {
+    &:where(.light, .light *) {
+      border-color: var(--color-gray-200);
+    }
+  }
+  .light\:border-gray-400 {
+    &:where(.light, .light *) {
+      border-color: var(--color-gray-400);
+    }
+  }
+  .light\:bg-blue-50 {
+    &:where(.light, .light *) {
+      background-color: var(--color-blue-50);
+    }
+  }
+  .light\:bg-blue-200 {
+    &:where(.light, .light *) {
+      background-color: var(--color-blue-200);
+    }
+  }
+  .light\:bg-blue-700 {
+    &:where(.light, .light *) {
+      background-color: var(--color-blue-700);
+    }
+  }
+  .light\:bg-blue-900 {
+    &:where(.light, .light *) {
+      background-color: var(--color-blue-900);
+    }
+  }
   .light\:bg-gray-100 {
     &:where(.light, .light *) {
       background-color: var(--color-gray-100);
+    }
+  }
+  .light\:bg-gray-300 {
+    &:where(.light, .light *) {
+      background-color: var(--color-gray-300);
+    }
+  }
+  .light\:bg-white {
+    &:where(.light, .light *) {
+      background-color: var(--color-white);
+    }
+  }
+  .light\:text-black {
+    &:where(.light, .light *) {
+      color: var(--color-black);
+    }
+  }
+  .light\:text-blue-600 {
+    &:where(.light, .light *) {
+      color: var(--color-blue-600);
+    }
+  }
+  .light\:text-gray-100 {
+    &:where(.light, .light *) {
+      color: var(--color-gray-100);
     }
   }
   .light\:text-gray-500 {
@@ -870,9 +972,65 @@
       color: var(--color-gray-500);
     }
   }
+  .light\:text-gray-600 {
+    &:where(.light, .light *) {
+      color: var(--color-gray-600);
+    }
+  }
+  .light\:text-gray-700 {
+    &:where(.light, .light *) {
+      color: var(--color-gray-700);
+    }
+  }
   .light\:text-gray-800 {
     &:where(.light, .light *) {
       color: var(--color-gray-800);
+    }
+  }
+  .light\:text-gray-900 {
+    &:where(.light, .light *) {
+      color: var(--color-gray-900);
+    }
+  }
+  .light\:text-white {
+    &:where(.light, .light *) {
+      color: var(--color-white);
+    }
+  }
+  .light\:group-hover\:text-gray-900 {
+    &:where(.light, .light *) {
+      &:is(:where(.group):hover *) {
+        @media (hover: hover) {
+          color: var(--color-gray-900);
+        }
+      }
+    }
+  }
+  .light\:hover\:bg-blue-100 {
+    &:where(.light, .light *) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-blue-100);
+        }
+      }
+    }
+  }
+  .light\:hover\:bg-blue-400 {
+    &:where(.light, .light *) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-blue-400);
+        }
+      }
+    }
+  }
+  .light\:hover\:text-blue-700 {
+    &:where(.light, .light *) {
+      &:hover {
+        @media (hover: hover) {
+          color: var(--color-blue-700);
+        }
+      }
     }
   }
 }

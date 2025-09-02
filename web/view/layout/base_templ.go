@@ -60,7 +60,7 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</main><footer class=\"bg-gray-800 border-t border-gray-700 py-8 mt-16\"><div class=\"container mx-auto px-6\"><div class=\"max-w-4xl mx-auto text-center\"><p class=\"text-gray-400 text-sm\">© ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</main><footer class=\"bg-gray-800 border-t border-gray-700 py-8 mt-16 light:bg-gray-300 light:border-gray-400\"><div class=\"container mx-auto px-6\"><div class=\"max-w-4xl mx-auto text-center\"><p class=\"text-gray-400 text-sm light:text-gray-700\">© ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -77,11 +77,11 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Icon("heart", "w-4 h-4 inline text-red-500").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Icon("heart", "w-4 h-4 mr-1 inline text-red-500").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "using <span class=\"text-white font-medium\">Go</span> & <span class=\"text-white font-medium\">Templ</span> by,</p><a href=\"https://github.com/darkard2003\" class=\"text-white hover:text-blue-200  font-medium inline-flex items-center gap-1 hover:scale-105 transform transition-transform duration-300\" target=\"_blank\" rel=\"noopener noreferrer\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "using <span class=\"text-white font-medium light:text-gray-800\">Go</span> & <span class=\"text-white font-medium light:text-gray-800\">Templ</span> by,</p><a href=\"https://github.com/darkard2003\" class=\"text-white light:text-gray-800 hover:text-blue-200 light:hover:text-blue-700  font-medium inline-flex items-center gap-1 hover:scale-105 transform transition-transform duration-300\" target=\"_blank\" rel=\"noopener noreferrer\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -89,7 +89,7 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<p class=\"text-white font-medium\">darkard2003</p></a></div></div></footer></body><script>\n      document.addEventListener('alpine:init', () => {\n        Alpine.store('darkMode', {\n          on: localStorage.getItem('darkMode') === null ? true : localStorage.getItem('darkMode') === 'true',\n          toggle() {\n            this.on = !this.on;\n            localStorage.setItem('darkMode', this.on);\n          }\n        });\n      });\n    </script></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<p class=\"text-white light:text-gray-800 font-medium\">darkard2003</p></a></div></div></footer></body><script>\n      document.addEventListener('alpine:init', () => {\n        Alpine.store('darkMode', {\n          on: localStorage.getItem('darkMode') === null ? true : localStorage.getItem('darkMode') === 'true',\n          toggle() {\n            this.on = !this.on;\n            localStorage.setItem('darkMode', this.on);\n          }\n        });\n      });\n    </script></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

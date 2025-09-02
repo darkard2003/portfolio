@@ -62,7 +62,7 @@ func homeNav() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components.Icon("hamburger", "text-white w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500").Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.Icon("hamburger", "text-white light:text-gray-800 w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500").Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -70,7 +70,7 @@ func homeNav() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = components.Icon("x-mark", "text-white w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500").Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.Icon("x-mark", "text-white light:text-gray-800 w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500").Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -84,7 +84,7 @@ func homeNav() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div x-show=\"isOpen\" x-cloak class=\"md:hidden absolute w-full\" id=\"mobile-menu\" x-transition.opacity><div class=\"px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800\"><a href=\"#about\" @click=\"isOpen = false\" class=\"block text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">About</a> <a href=\"#projects\" @click=\"isOpen = false\" class=\"block text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Projects</a> <a href=\"#contact\" @click=\"isOpen = false\" class=\"block text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Contact</a></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div x-show=\"isOpen\" x-cloak class=\"md:hidden absolute w-full\" id=\"mobile-menu\" x-transition.opacity><div class=\"px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800 light:bg-gray-300\"><a href=\"#about\" @click=\"isOpen = false\" class=\"block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">About</a> <a href=\"#projects\" @click=\"isOpen = false\" class=\"block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Projects</a> <a href=\"#contact\" @click=\"isOpen = false\" class=\"block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Contact</a> <button @click=\"$store.darkMode.toggle()\" class=\"text-gray-300 light:text-gray-500 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\"><span x-show=\"$store.darkMode.on\"><p class=\"text-gray-300 light:text-gray-800 text-sm font-medium\">Light Mode</p></span> <span x-show=\"! $store.darkMode.on\"><p class=\"text-gray-300 light:text-gray-800 text-sm font-medium\">Dark Mode</p></span></button></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

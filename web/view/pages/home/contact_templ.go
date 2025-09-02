@@ -32,7 +32,7 @@ func ContactSection(contacts models.Contacts) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"contact\" class=\"mb-16 md:mb-24\"><h2 class=\"text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight\">Get in Touch</h2><p class=\"text-lg text-gray-400 leading-relaxed mb-8 hover:text-gray-300 transition-colors duration-300\">I'm always open to new opportunities and collaborations. Feel free to reach out to me via email or connect with me on social platforms.</p><div class=\"flex flex-col sm:flex-row gap-4\"><a class=\"flex items-center justify-center gap-2 min-w-[84px] cursor-pointer rounded-md h-12 px-6 bg-white text-gray-900 text-base font-semibold leading-normal tracking-wide shadow-md hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg\" href=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"contact\" class=\"mb-16 md:mb-24\"><h2 class=\"text-3xl md:text-4xl font-bold text-white light:text-gray-800 mb-6 tracking-tight\">Get in Touch</h2><p class=\"text-lg text-gray-400 light:text-gray-700 leading-relaxed mb-8 hover:text-[var(--primary)] transition-colors duration-300\">I'm always open to new opportunities and collaborations. Feel free to reach out to me via email or connect with me on social platforms.</p><div class=\"flex flex-col sm:flex-row gap-4\"><a class=\"flex items-center justify-center gap-2 min-w-[84px] cursor-pointer rounded-md h-12 px-6 bg-white text-gray-900 text-base font-semibold leading-normal tracking-wide hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg\" href=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -58,7 +58,7 @@ func ContactSection(contacts models.Contacts) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		if contacts.LinkedIn.Url != "" {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<a class=\"flex items-center justify-center gap-2 min-w-[84px] cursor-pointer rounded-md h-12 px-6 bg-gray-700 text-white text-base font-semibold leading-normal tracking-wide hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg\" href=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<a class=\"flex items-center justify-center gap-2 min-w-[84px] cursor-pointer rounded-md h-12 px-6 bg-gray-700 text-white light:text-gray-900 light:bg-blue-200 text-base font-semibold leading-normal tracking-wide hover:bg-gray-600 light:hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg\" href=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

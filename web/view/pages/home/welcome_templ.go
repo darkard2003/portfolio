@@ -29,7 +29,7 @@ func WelcomeSection(name string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col flex-grow justify-center items-center h-64 mb-16 md:mb-24\"><h1 class=\"text-xl md:text-2xl lg:text-4xl font-bold text-center text-gray-400 hover:text-white transition-colors duration-500\">Hii, I'm ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col flex-grow justify-center items-center h-64 mb-16 md:mb-24\"><h1 class=\"text-xl md:text-2xl lg:text-4xl font-bold text-center text-gray-400 light:text-gray-700 hover:text-white transition-colors duration-500\">Hii, I'm ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -42,7 +42,7 @@ func WelcomeSection(name string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><p class=\"text-gray-400 text-center hover:text-gray-300 transition-colors duration-300\">Welcome to my portfolio</p></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><p class=\"text-gray-400 light:text-gray-700 text-center hover:text-gray-300 transition-colors duration-300\">Welcome to my portfolio</p></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
