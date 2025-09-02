@@ -1,8 +1,13 @@
 @import "tailwindcss" source("../view");
 
+@custom-variant light (&:where(.light, .light *));
+
 @layer base {
   :root {
     --primary-color: #ffffff;
+  }
+  :root.light {
+    --primary-color: #000000;
   }
 
   html {

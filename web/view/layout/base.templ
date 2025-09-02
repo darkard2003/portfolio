@@ -4,7 +4,7 @@ import "portfolio/web/view/components"
 
 templ BaseLayout(title string, nav templ.Component) {
 	<!DOCTYPE html>
-	<html lang="en">
+	<html lang="en" x-data :class="{ 'light': !$store.darkMode.on}">
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,7 +12,7 @@ templ BaseLayout(title string, nav templ.Component) {
 			<link rel="stylesheet" href="static/css/app.css"/>
 			<script src="static/scripts/alpine.min.js" defer></script>
 		</head>
-		<body class="bg-gray-900 text-white" style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23374151\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'0.5\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'0.5\'/%3E%3C/g%3E%3C/svg%3E');">
+		<body class="light:bg-gray-100 bg-gray-900 light:text-gray-800 text-white">
 			<header>
 				@nav
 			</header>
@@ -43,5 +43,16 @@ templ BaseLayout(title string, nav templ.Component) {
 				</div>
 			</footer>
 		</body>
+		<script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.store('darkMode', {
+          on: localStorage.getItem('darkMode') === null ? true : localStorage.getItem('darkMode') === 'true',
+          toggle() {
+            this.on = !this.on;
+            localStorage.setItem('darkMode', this.on);
+          }
+        });
+      });
+    </script>
 	</html>
 }

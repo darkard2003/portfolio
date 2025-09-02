@@ -56,7 +56,6 @@ func main() {
 	router.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	router.HandleFunc("/", handelers.IndexHandeler(data))
-	router.HandleFunc("/test", handelers.TestHandeler)
 
 	server := &http.Server{
 		Addr: ":" + port,
