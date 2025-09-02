@@ -14,8 +14,15 @@ import (
 )
 
 var data models.DataModel
+var hosted_url string
 
 func init() {
+
+	hosted_url = os.Getenv("HOSTED_URL")
+	if hosted_url == "" {
+		hosted_url = "http://localhost:8080"
+	}
+
 	file, err := os.Open("data.json")
 	if err != nil {
 		log.Fatal(err)
@@ -37,7 +44,13 @@ func main() {
 	}
 
 	fs := http.FileServer(http.Dir("static"))
-	router.Handle("/static/", middleware.Logger(http.StripPrefix("/static/", fs)))
+	router.Handle("/static/", middleware.Chain(
+		http.StripPrefix("/static/", fs),
+		middleware.Logger,
+		func(h http.Handler) http.Handler {
+			return middleware.CORSMiddleware(h, hosted_url)
+		},
+	))
 
 	router.HandleFunc("/", handelers.IndexHandeler(data))
 	router.HandleFunc("/test", handelers.TestHandeler)
