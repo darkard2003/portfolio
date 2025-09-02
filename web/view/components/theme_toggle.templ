@@ -1,0 +1,12 @@
+package components
+
+templ ThemeToggle() {
+    <button @click="$store.theme.toggle()" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+        <span x-show="$store.theme.current === 'dark'">
+            @Icon("sun", "w-5 h-5")
+        </span>
+        <span x-show="$store.theme.current === 'light'">
+            @Icon("moon", "w-5 h-5")
+        </span>
+    </button>
+}
