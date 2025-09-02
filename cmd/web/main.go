@@ -11,6 +11,8 @@ import (
 	"portfolio/internals/models"
 	"portfolio/internals/utils"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 var data models.DataModel
@@ -18,10 +20,17 @@ var hosted_url string
 
 func init() {
 
+	err := godotenv.Load()
+	if err != nil {
+		log.Println("Error loading .env file, using default values")
+	}
+
 	hosted_url = os.Getenv("HOSTED_URL")
 	if hosted_url == "" {
 		hosted_url = "http://localhost:8080"
 	}
+
+	log.Printf("Allowed CORS origin: %s\n", hosted_url)
 
 	file, err := os.Open("data.json")
 	if err != nil {
@@ -44,20 +53,19 @@ func main() {
 	}
 
 	fs := http.FileServer(http.Dir("static"))
-	router.Handle("/static/", middleware.Chain(
-		http.StripPrefix("/static/", fs),
-		middleware.Logger,
-		func(h http.Handler) http.Handler {
-			return middleware.CORSMiddleware(h, hosted_url)
-		},
-	))
+	router.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	router.HandleFunc("/", handelers.IndexHandeler(data))
 	router.HandleFunc("/test", handelers.TestHandeler)
 
 	server := &http.Server{
-		Addr:         ":" + port,
-		Handler:      middleware.Logger(router),
+		Addr: ":" + port,
+		Handler: middleware.Chain(router,
+			middleware.Logger,
+			func(h http.Handler) http.Handler {
+				return middleware.CORSMiddleware(h, hosted_url)
+			},
+		),
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 		IdleTimeout:  120 * time.Second,
