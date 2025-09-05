@@ -43,7 +43,7 @@ func ProjectList(projects []models.Project) templ.Component {
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(project.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/test_projects.templ`, Line: 8, Col: 23}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/home/test_projects.templ`, Line: 8, Col: 23}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {

@@ -53,7 +53,7 @@ func main() {
 	}
 
 	fs := http.FileServer(http.Dir("static"))
-	router.Handle("/static/", http.StripPrefix("/static/", fs))
+	router.Handle("/static/", middleware.CacheControlMiddleware(http.StripPrefix("/static/", fs)))
 
 	router.HandleFunc("/", handelers.IndexHandeler(data))
 	router.HandleFunc("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
