@@ -56,6 +56,9 @@ func main() {
 	router.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	router.HandleFunc("/", handelers.IndexHandeler(data))
+	router.HandleFunc("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "static/robots.txt")
+	})
 
 	server := &http.Server{
 		Addr: ":" + port,

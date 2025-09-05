@@ -8,6 +8,12 @@ templ BaseLayout(title string, nav templ.Component) {
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta name="description" content="A portfolio website for a software developer."/>
+			<meta name="keywords" content="portfolio, software, developer, Go, HTMX, Tailwind CSS"/>
+			<meta property="og:title" content="Portfolio"/>
+			<meta property="og:description" content="A portfolio website for a software developer."/>
+			<meta property="og:type" content="website"/>
+			<meta property="og:url" content="https://kaushikchowdhury.dev"/>
 			<title>{ title }</title>
 			<link rel="stylesheet" href="static/css/app.css"/>
 			<script src="static/scripts/alpine.min.js" defer></script>
