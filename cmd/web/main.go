@@ -53,7 +53,8 @@ func main() {
 	}
 
 	fs := http.FileServer(http.Dir("static"))
-	router.Handle("/static/", http.StripPrefix("/static/", fs))
+	// Apply CacheMiddleware specifically to static files
+	router.Handle("/static/", http.StripPrefix("/static/", middleware.CacheMiddleware(fs)))
 
 	router.HandleFunc("/", handelers.IndexHandeler(data))
 
@@ -61,6 +62,7 @@ func main() {
 		Addr: ":" + port,
 		Handler: middleware.Chain(router,
 			middleware.Logger,
+			middleware.GzipMiddleware, // Apply Gzip globally
 			func(h http.Handler) http.Handler {
 				return middleware.CORSMiddleware(h, hosted_url)
 			},
