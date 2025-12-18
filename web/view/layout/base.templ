@@ -10,6 +10,7 @@ templ BaseLayout(title string, nav templ.Component) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<title>{ title }</title>
 			<link rel="stylesheet" href="static/css/app.css"/>
+			<script src="static/js/main.js" defer></script>
 			<script src="static/scripts/alpine.min.js" defer></script>
 		</head>
 		<body class="light:bg-gray-100 bg-gray-900 light:text-gray-800 text-white">
@@ -43,16 +44,5 @@ templ BaseLayout(title string, nav templ.Component) {
 				</div>
 			</footer>
 		</body>
-		<script>
-      document.addEventListener('alpine:init', () => {
-        Alpine.store('darkMode', {
-          on: localStorage.getItem('darkMode') === null ? true : localStorage.getItem('darkMode') === 'true',
-          toggle() {
-            this.on = !this.on;
-            localStorage.setItem('darkMode', this.on);
-          }
-        });
-      });
-    </script>
 	</html>
 }

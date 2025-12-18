@@ -34,7 +34,7 @@ func homeNav() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div x-data=\"{ isOpen: false }\" class=\"relative\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div x-data class=\"relative\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -58,7 +58,7 @@ func homeNav() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"nev-menu-btn flex md:hidden \"><button @click=\"isOpen = !isOpen\" type=\"button\" class=\"inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white\" aria-controls=\"mobile-menu\" aria-expanded=\"false\"><span class=\"sr-only\">Open main menu</span><div x-show=\"!isOpen\" class=\"block\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"nev-menu-btn flex md:hidden \"><button @click=\"$store.mobileMenu.toggle()\" type=\"button\" class=\"inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white\" aria-controls=\"mobile-menu\" aria-expanded=\"false\"><span class=\"sr-only\">Open main menu</span><div x-show=\"!$store.mobileMenu.isOpen\" class=\"block\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -66,7 +66,7 @@ func homeNav() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div><div x-show=\"isOpen\" class=\"block\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div><div x-show=\"$store.mobileMenu.isOpen\" class=\"block\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -84,7 +84,7 @@ func homeNav() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div x-show=\"isOpen\" x-cloak class=\"md:hidden absolute w-full\" id=\"mobile-menu\" x-transition.opacity><div class=\"px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800 light:bg-gray-300\"><a href=\"#about\" @click=\"isOpen = false\" class=\"block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">About</a> <a href=\"#projects\" @click=\"isOpen = false\" class=\"block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Projects</a> <a href=\"#contact\" @click=\"isOpen = false\" class=\"block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Contact</a> <button @click=\"$store.darkMode.toggle()\" class=\"text-gray-300 light:text-gray-500 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\"><span x-show=\"$store.darkMode.on\"><p class=\"text-gray-300 light:text-gray-800 text-sm font-medium\">Light Mode</p></span> <span x-show=\"! $store.darkMode.on\"><p class=\"text-gray-300 light:text-gray-800 text-sm font-medium\">Dark Mode</p></span></button></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div x-show=\"$store.mobileMenu.isOpen\" x-cloak class=\"md:hidden absolute w-full\" id=\"mobile-menu\" x-transition.opacity><div class=\"px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800 light:bg-gray-300\"><a href=\"#about\" @click=\"$store.mobileMenu.close()\" class=\"block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">About</a> <a href=\"#projects\" @click=\"$store.mobileMenu.close()\" class=\"block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Projects</a> <a href=\"#contact\" @click=\"$store.mobileMenu.close()\" class=\"block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\">Contact</a> <button @click=\"$store.darkMode.toggle()\" class=\"text-gray-300 light:text-gray-500 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium\"><span x-show=\"$store.darkMode.on\"><p class=\"text-gray-300 light:text-gray-800 text-sm font-medium\">Light Mode</p></span> <span x-show=\"! $store.darkMode.on\"><p class=\"text-gray-300 light:text-gray-800 text-sm font-medium\">Dark Mode</p></span></button></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
