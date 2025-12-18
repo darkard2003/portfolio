@@ -29,7 +29,7 @@ func BaseNav() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200 animate-fade-in-down\"><div class=\"max-w-5xl mx-auto px-4\"><div class=\"flex items-center justify-between h-16\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"sticky top-0 z-50 bg-gray-950/90 light:bg-gray-50/90 backdrop-blur-sm border-b border-white/[0.05] light:border-black/[0.05]\"><div class=\"max-w-5xl mx-auto px-6\"><div class=\"flex items-center justify-between h-20\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

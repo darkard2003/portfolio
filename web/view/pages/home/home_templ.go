@@ -50,7 +50,7 @@ func homeNav() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div></div><div class=\"nav-items hidden md:flex flex-wrap items-center justify-center\"><a href=\"#about\" class=\"nav-item light:text-gray-800 text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300 animate-fade-in animate-delay-200\">About</a> <a href=\"#projects\" class=\"nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300 animate-fade-in animate-delay-300\">Projects</a> <a href=\"#contact\" class=\"nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transform hover:-translate-y-0.5 transition-all duration-300 animate-fade-in animate-delay-400\">Contact</a>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"flex items-center gap-2 font-mono text-xl font-bold text-white light:text-gray-900 tracking-tight cursor-pointer\"><span class=\"text-blue-500\">&gt;</span>darkard2003<span class=\"animate-pulse text-blue-500\">_</span></div><div class=\"nav-items hidden md:flex flex-wrap items-center justify-center\"><a href=\"#about\" class=\"nav-item light:text-gray-800 text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300\">About</a> <a href=\"#projects\" class=\"nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300\">Projects</a> <a href=\"#contact\" class=\"nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300\">Contact</a>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -125,11 +125,11 @@ func HomePage(data models.DataModel) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<div class=\"container mx-auto px-6 py-16 md:py-24\"><div class=\"max-w-4xl mx-auto\">")
+			templ_7745c5c3_Err = WelcomeSection(data.Handle).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = WelcomeSection(data.Name).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, " <div class=\"container mx-auto px-6 py-16 md:py-24\"><div class=\"max-w-4xl mx-auto\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

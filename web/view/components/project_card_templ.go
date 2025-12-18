@@ -49,7 +49,7 @@ func ProjectCard(project models.Project, class string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var3 = []any{"light:bg-white bg-gray-800 p-6 rounded-lg border light:border-gray-200 border-gray-700 hover:shadow-lg hover:shadow-blue-500/20 project-card h-full flex flex-col hover-lift hover-glow", class}
+		var templ_7745c5c3_Var3 = []any{"light:bg-white bg-gray-900 p-8 rounded-2xl border light:border-gray-200 border-gray-800 hover:border-gray-600 light:hover:border-gray-300 transition-colors duration-300 h-full flex flex-col hover-lift", class}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var3...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -67,14 +67,14 @@ func ProjectCard(project models.Project, class string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"><div class=\"flex items-start justify-between mb-2\"><h3 class=\"text-xl font-semibold light:text-gray-900 text-white\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\"><div class=\"flex items-start justify-between mb-4\"><h3 class=\"text-xl font-semibold light:text-gray-900 text-white tracking-tight\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var5 string
 		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(project.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/project_card.templ`, Line: 10, Col: 84}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/project_card.templ`, Line: 10, Col: 99}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
@@ -84,18 +84,18 @@ func ProjectCard(project models.Project, class string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Icon("external-link", "w-5 h-5 text-gray-400 light:group-hover:text-gray-900 group-hover:text-white transition-all duration-300 transform group-hover:scale-110").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Icon("external-link", "w-5 h-5 text-gray-500 light:group-hover:text-gray-900 group-hover:text-white transition-all duration-300 transform group-hover:scale-110").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div><p class=\"light:text-gray-600 text-gray-400 mb-4 flex-grow\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div><p class=\"light:text-gray-600 text-gray-400 mb-6 flex-grow leading-relaxed\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(project.Description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/project_card.templ`, Line: 13, Col: 84}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/project_card.templ`, Line: 13, Col: 100}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -106,14 +106,14 @@ func ProjectCard(project models.Project, class string) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		for _, tech := range project.Technologies {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<span class=\"text-xs font-medium px-2.5 py-0.5 rounded-full transition-all duration-300 cursor-pointer\" :class=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<span class=\"text-xs font-medium px-3 py-1 rounded-full transition-all duration-300 cursor-pointer border border-transparent\" :class=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("selected === '%s' ? 'bg-blue-500 text-white light:bg-blue-900' : 'bg-blue-900/50 text-blue-300 light:bg-blue-700 light:text-white hover:bg-blue-800'", tech))
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("$store.projectFilter.isSelected('%s') ? 'bg-white text-black light:bg-black light:text-white' : 'bg-gray-800 text-gray-300 light:bg-gray-100 light:text-gray-600 hover:border-gray-600 light:hover:border-gray-300'", tech))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/project_card.templ`, Line: 18, Col: 184}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/project_card.templ`, Line: 18, Col: 247}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {

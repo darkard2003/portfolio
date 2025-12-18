@@ -5,17 +5,17 @@ import "fmt"
 
 templ ProjectCard(project models.Project, class string) {
 	<a href={ templ.URL(project.Url) } target="_blank" rel="noopener noreferrer" class="block h-full group">
-		<div class={ "light:bg-white bg-gray-800 p-6 rounded-lg border light:border-gray-200 border-gray-700 hover:shadow-lg hover:shadow-blue-500/20 project-card h-full flex flex-col hover-lift hover-glow", class }>
-			<div class="flex items-start justify-between mb-2">
-				<h3 class="text-xl font-semibold light:text-gray-900 text-white">{ project.Title }</h3>
-				@Icon("external-link", "w-5 h-5 text-gray-400 light:group-hover:text-gray-900 group-hover:text-white transition-all duration-300 transform group-hover:scale-110")
+		<div class={ "light:bg-white bg-gray-900 p-8 rounded-2xl border light:border-gray-200 border-gray-800 hover:border-gray-600 light:hover:border-gray-300 transition-colors duration-300 h-full flex flex-col hover-lift", class }>
+			<div class="flex items-start justify-between mb-4">
+				<h3 class="text-xl font-semibold light:text-gray-900 text-white tracking-tight">{ project.Title }</h3>
+				@Icon("external-link", "w-5 h-5 text-gray-500 light:group-hover:text-gray-900 group-hover:text-white transition-all duration-300 transform group-hover:scale-110")
 			</div>
-			<p class="light:text-gray-600 text-gray-400 mb-4 flex-grow">{ project.Description }</p>
+			<p class="light:text-gray-600 text-gray-400 mb-6 flex-grow leading-relaxed">{ project.Description }</p>
 			<div class="flex flex-wrap gap-2 mt-auto">
 				for _, tech := range project.Technologies {
 					<span
-						class="text-xs font-medium px-2.5 py-0.5 rounded-full transition-all duration-300 cursor-pointer"
-						:class={ fmt.Sprintf("selected === '%s' ? 'bg-blue-500 text-white light:bg-blue-900' : 'bg-blue-900/50 text-blue-300 light:bg-blue-700 light:text-white hover:bg-blue-800'", tech) }
+						class="text-xs font-medium px-3 py-1 rounded-full transition-all duration-300 cursor-pointer border border-transparent"
+						:class={ fmt.Sprintf("$store.projectFilter.isSelected('%s') ? 'bg-white text-black light:bg-black light:text-white' : 'bg-gray-800 text-gray-300 light:bg-gray-100 light:text-gray-600 hover:border-gray-600 light:hover:border-gray-300'", tech) }
 					>{ tech }</span>
 				}
 			</div>

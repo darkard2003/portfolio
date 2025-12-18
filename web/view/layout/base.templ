@@ -9,11 +9,14 @@ templ BaseLayout(title string, nav templ.Component) {
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<title>{ title }</title>
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 			<link rel="stylesheet" href="static/css/app.css"/>
 			<script src="static/js/main.js" defer></script>
 			<script src="static/scripts/alpine.min.js" defer></script>
 		</head>
-		<body class="light:bg-gray-100 bg-gray-900 light:text-gray-800 text-white">
+		<body class="light:bg-gray-50 bg-gray-950 light:text-gray-900 text-gray-50 font-sans antialiased selection:bg-blue-500/30">
 			<header>
 				@nav
 			</header>

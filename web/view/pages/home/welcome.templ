@@ -1,12 +1,23 @@
 package home
 
-templ WelcomeSection(name string) {
-	<div class="flex flex-col flex-grow justify-center items-center h-64 mb-16 md:mb-24">
-		<h1 class="text-xl md:text-2xl lg:text-4xl font-bold text-center text-gray-400 light:text-gray-700 hover:text-[var(--primary)] transition-colors duration-500">
-			Hii, I'm { name }
-		</h1>
-		<p class="text-gray-400 light:text-gray-700 text-center hover:text-gray-300 light:hover:text-gray-700 transition-colors duration-300">
-			Welcome to my portfolio
-		</p>
+import "fmt"
+
+templ WelcomeSection(handle string) {
+	<div class="relative flex flex-col justify-center items-center h-screen w-full mb-16 pb-20 fade-in overflow-hidden">
+		<!-- Background Image with Overlay -->
+		<div class="absolute inset-0 z-0">
+			<img src="static/images/banner.png" alt="Code Banner" class="w-full h-full object-cover opacity-40 light:opacity-30 scale-105"/>
+			<div class="absolute inset-0 bg-gradient-to-b from-gray-950/90 via-gray-950/70 to-gray-950/95 light:from-gray-50/90 light:via-gray-50/70 light:to-gray-50/95"></div>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10 flex flex-col items-center">
+			<h1 class="font-mono text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-6 tracking-tight drop-shadow-2xl">
+				<span class="text-blue-500 mr-2 opacity-80">&gt;</span>{ fmt.Sprintf("@%s", handle) }<span class="animate-pulse text-blue-500">_</span>
+			</h1>
+			<p class="text-lg md:text-xl text-gray-400 light:text-gray-500 text-center max-w-2xl leading-relaxed font-light">
+				Building beautiful mobile experiences with Flutter and robust backend systems with Go.
+			</p>
+		</div>
 	</div>
 }
