@@ -17,7 +17,7 @@ templ WelcomeSection(handle string) {
 
 		<!-- Content -->
 		<div class="relative z-10 flex flex-col items-center">
-			<h1 class="font-mono text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-6 tracking-tight drop-shadow-2xl">
+			<h1 class="font-mono text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white light:text-gray-900 mb-6 tracking-tight drop-shadow-2xl">
 				<span class="text-blue-500 mr-2 opacity-80">&gt;</span>{ fmt.Sprintf("@%s", handle) }<span class="animate-pulse text-blue-500">_</span>
 			</h1>
 			<p class="text-lg md:text-xl text-gray-400 light:text-gray-500 text-center max-w-2xl leading-relaxed font-light">
