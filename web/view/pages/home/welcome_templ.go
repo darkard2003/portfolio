@@ -31,14 +31,14 @@ func WelcomeSection(handle string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"relative flex flex-col justify-center items-center h-screen w-full mb-16 pb-20 fade-in overflow-hidden\"><!-- Background Image with Overlay --><div class=\"absolute inset-0 z-0\"><img src=\"static/images/banner.png\" alt=\"Code Banner\" class=\"w-full h-full object-cover opacity-40 light:opacity-30 scale-105\"><div class=\"absolute inset-0 bg-gradient-to-b from-gray-950/90 via-gray-950/70 to-gray-950/95 light:from-gray-50/90 light:via-gray-50/70 light:to-gray-50/95\"></div></div><!-- Content --><div class=\"relative z-10 flex flex-col items-center\"><h1 class=\"font-mono text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-6 tracking-tight drop-shadow-2xl\"><span class=\"text-blue-500 mr-2 opacity-80\">&gt;</span>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"relative flex flex-col justify-center items-center h-screen w-full mb-16 pt-20 fade-in overflow-hidden\"><!-- Background Image with Overlay --><div class=\"absolute inset-0 z-0\"><picture><source media=\"(max-width: 640px)\" srcset=\"static/images/banner_640w.webp\" type=\"image/webp\"> <source media=\"(max-width: 1024px)\" srcset=\"static/images/banner_1024w.webp\" type=\"image/webp\"> <source srcset=\"static/images/banner_1920w.webp\" type=\"image/webp\"> <img src=\"static/images/banner.png\" alt=\"Code Banner\" class=\"w-full h-full object-cover opacity-40 light:opacity-30 scale-105\"></picture><div class=\"absolute inset-0 bg-gradient-to-b from-gray-950/90 via-gray-950/70 to-gray-950/95 light:from-gray-50/90 light:via-gray-50/70 light:to-gray-50/95\"></div></div><!-- Content --><div class=\"relative z-10 flex flex-col items-center\"><h1 class=\"font-mono text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-6 tracking-tight drop-shadow-2xl\"><span class=\"text-blue-500 mr-2 opacity-80\">&gt;</span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("@%s", handle))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/home/welcome.templ`, Line: 16, Col: 87}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/home/welcome.templ`, Line: 21, Col: 87}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {

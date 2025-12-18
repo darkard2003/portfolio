@@ -34,7 +34,7 @@ func homeNav() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div x-data class=\"relative\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"relative\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -50,7 +50,7 @@ func homeNav() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"flex items-center gap-2 font-mono text-xl font-bold text-white light:text-gray-900 tracking-tight cursor-pointer\"><span class=\"text-blue-500\">&gt;</span>darkard2003<span class=\"animate-pulse text-blue-500\">_</span></div><div class=\"nav-items hidden md:flex flex-wrap items-center justify-center\"><a href=\"#about\" class=\"nav-item light:text-gray-800 text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300\">About</a> <a href=\"#projects\" class=\"nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300\">Projects</a> <a href=\"#contact\" class=\"nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300\">Contact</a>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div><div class=\"flex items-center gap-2 font-mono text-xl font-bold text-white light:text-gray-900 tracking-tight cursor-pointer\"><span class=\"text-blue-500\">&gt;</span>darkard2003<span class=\"animate-pulse text-blue-500\">_</span></div></div><div class=\"nav-items hidden md:flex flex-wrap items-center justify-center\"><a href=\"#about\" class=\"nav-item light:text-gray-800 text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300\">About</a> <a href=\"#projects\" class=\"nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300\">Projects</a> <a href=\"#contact\" class=\"nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300\">Contact</a>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

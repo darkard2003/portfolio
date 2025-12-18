@@ -6,10 +6,12 @@ import "portfolio/internals/models"
 import "portfolio/web/view/components"
 
 templ homeNav() {
-	<div x-data class="relative">
+	<div class="relative">
 		@nav.BaseNav() {
-			<div class="flex items-center gap-2 font-mono text-xl font-bold text-white light:text-gray-900 tracking-tight cursor-pointer">
-				<span class="text-blue-500">&gt;</span>darkard2003<span class="animate-pulse text-blue-500">_</span>
+			<div>
+				<div class="flex items-center gap-2 font-mono text-xl font-bold text-white light:text-gray-900 tracking-tight cursor-pointer">
+					<span class="text-blue-500">&gt;</span>darkard2003<span class="animate-pulse text-blue-500">_</span>
+				</div>
 			</div>
 			<div class="nav-items hidden md:flex flex-wrap items-center justify-center">
 				<a href="#about" class="nav-item light:text-gray-800 text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">About</a>
