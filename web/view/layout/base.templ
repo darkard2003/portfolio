@@ -15,11 +15,12 @@ templ BaseLayout(title string, nav templ.Component) {
 			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 			<link rel="stylesheet" href="/static/css/app.css"/>
 			<link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg"/>
-			<script src="/static/js/main.js"></script>
-			<script src="/static/scripts/alpine.min.js"></script>
+			<script src="/static/js/main.js" defer></script>
+			<script src="/static/scripts/alpine.min.js" defer></script>
 			<script src="/static/scripts/htmx.min.js"></script>
+			<script src="/static/scripts/htmx-ext-preload.js" defer></script>
 		</head>
-		<body id="body" class="light:bg-gray-50 bg-gray-950 light:text-gray-900 text-gray-50 font-sans antialiased selection:bg-blue-500/30 flex flex-col min-h-screen" hx-boost="true">
+		<body hx-ext="preload" id="body" class="light:bg-gray-50 bg-gray-950 light:text-gray-900 text-gray-50 font-sans antialiased selection:bg-blue-500/30 flex flex-col min-h-screen" hx-boost="true">
 			<header>
 				@nav
 			</header>

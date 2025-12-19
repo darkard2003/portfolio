@@ -46,7 +46,7 @@ func BaseNav(
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\" x-show=\"!$store.navigation.isHome()\" x-cloak class=\"block transition-transform hover:scale-105 duration-300\" x-transition:enter=\"transition ease-out duration-300\" x-transition:enter-start=\"opacity-0 translate-x-4\" x-transition:enter-end=\"opacity-100 translate-x-0\"><div class=\"flex items-center gap-2 cursor-pointer group\"><div class=\"p-2 rounded-full bg-gray-800/50 light:bg-gray-200/50 backdrop-blur-sm group-hover:bg-blue-500/20 transition-colors\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\" x-show=\"!$store.navigation.isHome()\" x-cloak class=\"block transition-transform hover:scale-105 duration-300\" x-transition:enter=\"transition ease-out duration-300\" x-transition:enter-start=\"opacity-0 translate-x-4\" x-transition:enter-end=\"opacity-100 translate-x-0\" preload preload-images=\"true\"><div class=\"flex items-center gap-2 cursor-pointer group\"><div class=\"p-2 rounded-full bg-gray-800/50 light:bg-gray-200/50 backdrop-blur-sm group-hover:bg-blue-500/20 transition-colors\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

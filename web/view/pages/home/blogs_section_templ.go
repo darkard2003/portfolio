@@ -40,7 +40,7 @@ func BlogsSection(blogs []models.BlogModel) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><h2 style=\"view-transition-name: blogs-title\" class=\"text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800\">Blogs</h2></div><a href=\"/blogs\"><div class=\"flex items-center gap-3 text-gray-400 hover:text-[var(--primary)] h-full transition-colors duration-300\"><p>View all</p>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><h2 style=\"view-transition-name: blogs-title\" class=\"text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800\">Blogs</h2></div><a href=\"/blogs\" preload><div class=\"flex items-center gap-3 text-gray-400 hover:text-[var(--primary)] h-full transition-colors duration-300\"><p>View all</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

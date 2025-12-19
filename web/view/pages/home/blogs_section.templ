@@ -14,7 +14,7 @@ templ BlogsSection(blogs []models.BlogModel) {
 					Blogs
 				</h2>
 			</div>
-			<a href="/blogs">
+			<a href="/blogs" preload>
 				<div class="flex items-center gap-3 text-gray-400 hover:text-[var(--primary)] h-full transition-colors duration-300">
 					<p>View all</p>
 					@components.Icon("arrow-right", "w-4 h-4")
