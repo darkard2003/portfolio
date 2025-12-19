@@ -1,28 +1,27 @@
 package home
 
-import "fmt"
-
 templ WelcomeSection(handle string) {
-	<div class="relative flex flex-col justify-center items-center h-screen w-full mb-16 pt-20 fade-in overflow-hidden">
-		<!-- Background Image with Overlay -->
-		<div class="absolute inset-0 z-0">
-			<picture>
-				<source media="(max-width: 640px)" srcset="static/images/banner_640w.webp" type="image/webp"/>
-				<source media="(max-width: 1024px)" srcset="static/images/banner_1024w.webp" type="image/webp"/>
-				<source srcset="static/images/banner_1920w.webp" type="image/webp"/>
-				<img src="static/images/banner.png" alt="Code Banner" class="w-full h-full object-cover opacity-40 light:opacity-30 scale-105"/>
-			</picture>
-			<div class="absolute inset-0 bg-gradient-to-b from-gray-950/90 via-gray-950/70 to-gray-950/95 light:from-gray-50/90 light:via-gray-50/70 light:to-gray-50/95"></div>
+	<section id="welcome" class="">
+		<div class="relative flex flex-col justify-center items-center h-screen w-full mb-16 pt-20 fade-in overflow-hidden">
+			<!-- Background Image with Overlay -->
+			<div class="absolute inset-0 z-0">
+				<picture>
+					<source media="(max-width: 640px)" srcset="static/images/banner_640w.webp" type="image/webp"/>
+					<source media="(max-width: 1024px)" srcset="static/images/banner_1024w.webp" type="image/webp"/>
+					<source srcset="static/images/banner_1920w.webp" type="image/webp"/>
+					<img src="static/images/banner.png" alt="Code Banner" class="w-full h-full object-cover opacity-40 light:opacity-30 scale-105"/>
+				</picture>
+				<div class="absolute inset-0 bg-gradient-to-b from-gray-950/90 via-gray-950/70 to-gray-950/95 light:from-gray-50/90 light:via-gray-50/70 light:to-gray-50/95"></div>
+			</div>
+			<!-- Content -->
+			<div class="relative z-10 flex flex-col items-center">
+				<h1 class="font-mono text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white light:text-gray-900 mb-6 tracking-tight drop-shadow-2xl">
+					<span class="text-blue-500 mr-2 opacity-80">&gt;</span>{ "@" +  handle }<span class="animate-pulse text-blue-500">_</span>
+				</h1>
+				<p class="text-lg md:text-xl text-gray-400 light:text-gray-500 text-center max-w-2xl leading-relaxed font-light">
+					Building beautiful mobile experiences with Flutter and robust backend systems with Go.
+				</p>
+			</div>
 		</div>
-
-		<!-- Content -->
-		<div class="relative z-10 flex flex-col items-center">
-			<h1 class="font-mono text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white light:text-gray-900 mb-6 tracking-tight drop-shadow-2xl">
-				<span class="text-blue-500 mr-2 opacity-80">&gt;</span>{ fmt.Sprintf("@%s", handle) }<span class="animate-pulse text-blue-500">_</span>
-			</h1>
-			<p class="text-lg md:text-xl text-gray-400 light:text-gray-500 text-center max-w-2xl leading-relaxed font-light">
-				Building beautiful mobile experiences with Flutter and robust backend systems with Go.
-			</p>
-		</div>
-	</div>
+	</section>
 }

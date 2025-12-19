@@ -31,20 +31,20 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\" class=\"h-full transition-colors duration-300\" x-data :class=\"{ 'light': !$store.darkMode.on}\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><!--html lang=\"en\" class=\"h-full transition-colors duration-300 light:bg-gray-50 bg-gray-950\" x-data :class=\"{ 'light': !$store.darkMode.on}\"--><html lang=\"en\" class=\"h-full light:bg-gray-50 bg-gray-950\" x-data :class=\"{ 'light': !$store.darkMode.on}\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `layout/base.templ`, Line: 11, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/layout/base.templ`, Line: 12, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</title><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\"><link rel=\"stylesheet\" href=\"/static/css/app.css\"><script src=\"/static/js/main.js\" defer></script><script src=\"/static/scripts/alpine.min.js\" defer></script><script src=\"/static/scripts/htmx.min.js\" defer></script></head><body class=\"light:bg-gray-50 bg-gray-950 light:text-gray-900 text-gray-50 font-sans antialiased selection:bg-blue-500/30 flex flex-col min-h-screen\" hx-boost=\"true\"><header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</title><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\"><link rel=\"stylesheet\" href=\"/static/css/app.css\"><link rel=\"icon\" type=\"image/svg+xml\" href=\"/static/images/favicon.svg\"><script src=\"/static/js/main.js\"></script><script src=\"/static/scripts/alpine.min.js\"></script><script src=\"/static/scripts/htmx.min.js\"></script></head><body id=\"body\" class=\"light:bg-gray-50 bg-gray-950 light:text-gray-900 text-gray-50 font-sans antialiased selection:bg-blue-500/30 flex flex-col min-h-screen\" hx-boost=\"true\"><header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -52,7 +52,7 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</header><main class=\"flex-grow flex flex-col\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</header><main class=\"flex-grow flex flex-col\" hx-swap=\"innerHTML transition:true\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -60,14 +60,14 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</main><footer class=\"bg-gray-800 border-t border-gray-700 py-8 mt-16 light:bg-gray-300 light:border-gray-400\"><div class=\"container mx-auto px-6\"><div class=\"max-w-4xl mx-auto text-center\"><p class=\"text-gray-400 text-sm light:text-gray-700\">© ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</main><footer hx-preserve id=\"footer\" class=\"bg-gray-800 border-t border-gray-700 py-8 mt-16 light:bg-gray-300 light:border-gray-400\"><div class=\"container mx-auto px-6\"><div class=\"max-w-4xl mx-auto text-center\"><p class=\"text-gray-400 text-sm light:text-gray-700\">© ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs("2025")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `layout/base.templ`, Line: 31, Col: 18}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/layout/base.templ`, Line: 33, Col: 18}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {

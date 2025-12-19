@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
 @source "../view";
 
 @custom-variant light (&:where(.light, .light *));
@@ -6,17 +8,40 @@
 @layer base {
   :root {
     --primary-color: #ffffff;
+    --bg-color: #111827;
   }
 
   :root.light {
     --primary-color: #111827;
-    /* Gray-900 */
+    --bg-color: #ffffff;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ::view-transition { */
+  /*   background-color: var(--bg-color); */
+  /* } */
+  /**/
+  /* ::view-transition-group(root) { */
+  /*   animation-duration: 0.3s; */
+  /*   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
+  /* } */
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+     mix-blend-mode: normal;
+     animation-duration: 0.3s;
+     background-color: var(--bg-color,  #111827);
   }
 
   body {
@@ -37,4 +62,6 @@
   .hover-lift:hover {
     transform: translateY(-2px);
   }
+
+
 }

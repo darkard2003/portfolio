@@ -6,12 +6,16 @@ import "portfolio/internals/models"
 import "portfolio/web/view/components"
 
 templ Blog(posts []models.BlogModel) {
-	@layout.BaseLayout("Blogs", nav.HomeNav()) {
+	@layout.BaseLayout("Blogs", nav.BlogNav()) {
 		<div class="max-w-5xl mx-auto px-6 py-24 md:py-32 w-full">
-			<div class="mb-12">
-				<h2 class="text-3xl md:text-4xl font-bold text-white light:text-gray-900 tracking-tight">Blogs</h2>
+			<div class="mb-12 flex items-center justify-start gap-3">
+				<div style="view-transition-name: blogs-icon">
+					@components.Icon("book-open", "w-8 h-8 text-blue-400 light:text-blue-600")
+				</div>
+				<h2 style="view-transition-name: blogs-title" class="text-3xl md:text-4xl font-bold text-white light:text-gray-900 tracking-tight">
+					Blogs
+				</h2>
 			</div>
-
 			if len(posts) == 0 {
 				<div class="text-center py-20">
 					<p class="text-gray-500 light:text-gray-400">No posts found.</p>
@@ -19,26 +23,7 @@ templ Blog(posts []models.BlogModel) {
 			} else {
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					for _, post := range posts {
-						<a href={ templ.SafeURL("/posts/" + post.Slug) } class="group block h-full"> 
-							<article class="h-full flex flex-col p-6 rounded-2xl bg-gray-900/30 light:bg-white border border-gray-800 light:border-gray-200 transition-all duration-300 hover:border-blue-500/50 hover:shadow-lg hover:-translate-y-1">
-								<div class="flex items-center justify-between text-sm text-gray-500 light:text-gray-400 mb-4 font-mono">
-									<time datetime={ post.Date }>{ post.Date }</time>
-								</div>
-								
-								<h3 class="text-xl font-bold text-white light:text-gray-900 mb-3 group-hover:text-blue-400 light:group-hover:text-blue-600 transition-colors">
-									{ post.Title }
-								</h3>
-								
-								<p class="text-gray-400 light:text-gray-600 line-clamp-3 mb-6 flex-grow text-sm leading-relaxed">
-									{ post.Description }
-								</p>
-
-								<div class="flex items-center text-blue-400 light:text-blue-600 font-medium text-sm mt-auto group-hover:gap-2 transition-all duration-300">
-									Read Article
-									@components.Icon("arrow-right", "w-4 h-4 ml-1 transition-transform group-hover:translate-x-1")
-								</div>
-							</article>
-						</a>
+						@components.BlogCard(post)
 					}
 				</div>
 			}

@@ -5,6 +5,13 @@ document.addEventListener('alpine:init', () => {
         toggle() {
             this.on = !this.on;
             localStorage.setItem('darkMode', this.on);
+
+            // Force class update for immediate feedback
+            if (this.on) {
+                document.documentElement.classList.remove('light');
+            } else {
+                document.documentElement.classList.add('light');
+            }
         }
     });
 
@@ -28,4 +35,32 @@ document.addEventListener('alpine:init', () => {
             return this.selected === 'none' || projectTechs.includes(this.selected);
         }
     });
+
+    // Navigation Store for Logo/Back Button
+    Alpine.store('navigation', {
+        path: window.location.pathname,
+        isHome() {
+            return this.path === '/' || this.path === '';
+        },
+        updatePath() {
+            this.path = window.location.pathname;
+        }
+    });
+});
+
+// HTMX Events for Robustness
+document.addEventListener('htmx:afterSwap', (event) => {
+    // Update navigation state after HTMX swap
+    if (window.Alpine) {
+        const nav = Alpine.store('navigation');
+        if (nav) nav.updatePath();
+    }
+});
+
+// Handle History Navigation (Back/Forward)
+window.addEventListener('popstate', () => {
+    if (window.Alpine) {
+        const nav = Alpine.store('navigation');
+        if (nav) nav.updatePath();
+    }
 });

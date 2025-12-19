@@ -9,7 +9,7 @@ import (
 	"portfolio/web/view/pages/notfound"
 )
 
-func IndexHandeler(data models.DataModel) http.HandlerFunc {
+func IndexHandeler(data models.DataModel, blogs []models.BlogModel) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {
 			w.WriteHeader(http.StatusNotFound)
@@ -23,7 +23,7 @@ func IndexHandeler(data models.DataModel) http.HandlerFunc {
 		}
 
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		home := home.HomePage(data)
+		home := home.HomePage(data, blogs[:min(len(blogs), 6)])
 
 		if err := home.Render(context.Background(), w); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)

@@ -12,23 +12,25 @@ templ ProjectSection(projects []models.Project, projectTechnologies []string) {
 			@components.Icon("code-bracket", "w-8 h-8 text-blue-400 light:text-blue-600")
 			<h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800">Projects</h2>
 		</div>
-		<div id="project-technologies" class="flex flex-wrap gap-2 mb-8">
-			for _, tech := range projectTechnologies {
-				<span
-					class="text-xs font-medium px-3 py-1 rounded-md transition-all duration-300 hover:scale-105 cursor-pointer"
-					:class={ fmt.Sprintf("$store.projectFilter.isSelected('%s') ? 'bg-blue-500 text-white light:bg-blue-900' : 'bg-blue-900/50 text-blue-300 light:bg-blue-700 light:text-white hover:bg-blue-800'", tech) }
-					x-on:click={ fmt.Sprintf("$store.projectFilter.toggle('%s')", tech) }
-				>
-					{ tech }
-				</span>
-			}
-		</div>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			for _, project := range projects {
-				<div x-show={ "$store.projectFilter.isVisible(" + project.TechnologiesJson() + ")" } x-transition>
-					@components.ProjectCard(project, "")
-				</div>
-			}
+		<div>
+			<div id="project-technologies" class="flex flex-wrap gap-2 mb-8">
+				for _, tech := range projectTechnologies {
+					<span
+						class="text-xs font-medium px-3 py-1 rounded-md transition-all duration-300 hover:scale-105 cursor-pointer"
+						:class={ fmt.Sprintf("$store.projectFilter.isSelected('%s') ? 'bg-blue-500 text-white light:bg-blue-900' : 'bg-blue-900/50 text-blue-300 light:bg-blue-700 light:text-white hover:bg-blue-800'", tech) }
+						x-on:click={ fmt.Sprintf("$store.projectFilter.toggle('%s')", tech) }
+					>
+						{ tech }
+					</span>
+				}
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				for _, project := range projects {
+					<div x-show={ "$store.projectFilter.isVisible(" + project.TechnologiesJson() + ")" } x-transition>
+						@components.ProjectCard(project, "")
+					</div>
+				}
+			</div>
 		</div>
 	</section>
 }

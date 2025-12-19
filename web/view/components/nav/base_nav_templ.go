@@ -8,7 +8,11 @@ package nav
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func BaseNav() templ.Component {
+import "portfolio/web/view/components"
+
+func BaseNav(
+	backRef string,
+) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -29,7 +33,28 @@ func BaseNav() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"fixed top-0 w-full z-50 bg-gray-950/90 light:bg-gray-50/90 backdrop-blur-sm border-b border-white/[0.05] light:border-black/[0.05]\" hx-boost=\"true\"><div class=\"max-w-5xl mx-auto px-6\"><div class=\"flex items-center justify-between h-20\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<nav class=\"fixed top-0 w-full z-50 bg-gray-950/90 light:bg-gray-50/90 backdrop-blur-sm border-b border-white/[0.05] light:border-black/[0.05]\"><div class=\"max-w-5xl mx-auto px-6\"><div class=\"flex items-center justify-between h-20\"><div x-data><a href=\"#welcome\" x-show=\"$store.navigation.isHome()\" class=\"block transition-transform hover:scale-105 duration-300\" x-transition:enter=\"transition ease-out duration-300\" x-transition:enter-start=\"opacity-0 -translate-x-4\" x-transition:enter-end=\"opacity-100 translate-x-0\"><div class=\"flex items-center gap-2 cursor-pointer\"><img :src=\"$store.darkMode.on ? '/static/images/logo_cyan.svg' : '/static/images/logo_black.svg'\" class=\"w-10 h-10\" alt=\"Logo\"></div></a> <a href=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var2 templ.SafeURL
+		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinURLErrs(templ.SafeURL(backRef))
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/components/nav/base_nav.templ`, Line: 25, Col: 35}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\" x-show=\"!$store.navigation.isHome()\" x-cloak class=\"block transition-transform hover:scale-105 duration-300\" x-transition:enter=\"transition ease-out duration-300\" x-transition:enter-start=\"opacity-0 translate-x-4\" x-transition:enter-end=\"opacity-100 translate-x-0\"><div class=\"flex items-center gap-2 cursor-pointer group\"><div class=\"p-2 rounded-full bg-gray-800/50 light:bg-gray-200/50 backdrop-blur-sm group-hover:bg-blue-500/20 transition-colors\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = components.Icon("chevron-left", "w-5 h-5 text-gray-300 light:text-gray-700 group-hover:text-blue-400 light:group-hover:text-blue-600").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><span class=\"text-sm font-medium text-gray-300 light:text-gray-700 group-hover:text-blue-400 light:group-hover:text-blue-600\">Back</span></div></a></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -37,7 +62,7 @@ func BaseNav() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div></div></nav>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

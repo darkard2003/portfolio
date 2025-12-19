@@ -43,7 +43,7 @@ func ProjectSection(projects []models.Project, projectTechnologies []string) tem
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<h2 class=\"text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800\">Projects</h2></div><div id=\"project-technologies\" class=\"flex flex-wrap gap-2 mb-8\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<h2 class=\"text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800\">Projects</h2></div><div><div id=\"project-technologies\" class=\"flex flex-wrap gap-2 mb-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -55,7 +55,7 @@ func ProjectSection(projects []models.Project, projectTechnologies []string) tem
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("$store.projectFilter.isSelected('%s') ? 'bg-blue-500 text-white light:bg-blue-900' : 'bg-blue-900/50 text-blue-300 light:bg-blue-700 light:text-white hover:bg-blue-800'", tech))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/home/projectsection.templ`, Line: 19, Col: 203}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/projectsection.templ`, Line: 20, Col: 204}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -68,7 +68,7 @@ func ProjectSection(projects []models.Project, projectTechnologies []string) tem
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("$store.projectFilter.toggle('%s')", tech))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/home/projectsection.templ`, Line: 20, Col: 72}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/projectsection.templ`, Line: 21, Col: 73}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -81,7 +81,7 @@ func ProjectSection(projects []models.Project, projectTechnologies []string) tem
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(tech)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/home/projectsection.templ`, Line: 22, Col: 11}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/projectsection.templ`, Line: 23, Col: 12}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -104,7 +104,7 @@ func ProjectSection(projects []models.Project, projectTechnologies []string) tem
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs("$store.projectFilter.isVisible(" + project.TechnologiesJson() + ")")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/home/projectsection.templ`, Line: 28, Col: 86}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/projectsection.templ`, Line: 29, Col: 87}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -123,7 +123,7 @@ func ProjectSection(projects []models.Project, projectTechnologies []string) tem
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

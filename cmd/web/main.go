@@ -62,10 +62,10 @@ func main() {
 	}
 
 	fs := http.FileServer(http.Dir("static"))
-	router.Handle("/static/", http.StripPrefix("/static/", middleware.CacheMiddleware(fs)))
+	router.Handle("/static/", http.StripPrefix("/static/", middleware.StaticCache(fs)))
 
-	router.HandleFunc("/", handelers.IndexHandeler(data))
-	router.HandleFunc("/blogs", handelers.BlogHandeler(postService))
+	router.Handle("/", middleware.PageCache(handelers.IndexHandeler(data, postService.Posts)))
+	router.Handle("/blogs", middleware.PageCache(handelers.BlogHandeler(postService)))
 
 	server := &http.Server{
 		Addr: ":" + port,

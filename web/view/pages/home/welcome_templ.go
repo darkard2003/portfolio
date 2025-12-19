@@ -8,8 +8,6 @@ package home
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "fmt"
-
 func WelcomeSection(handle string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -31,20 +29,20 @@ func WelcomeSection(handle string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"relative flex flex-col justify-center items-center h-screen w-full mb-16 pt-20 fade-in overflow-hidden\"><!-- Background Image with Overlay --><div class=\"absolute inset-0 z-0\"><picture><source media=\"(max-width: 640px)\" srcset=\"static/images/banner_640w.webp\" type=\"image/webp\"> <source media=\"(max-width: 1024px)\" srcset=\"static/images/banner_1024w.webp\" type=\"image/webp\"> <source srcset=\"static/images/banner_1920w.webp\" type=\"image/webp\"> <img src=\"static/images/banner.png\" alt=\"Code Banner\" class=\"w-full h-full object-cover opacity-40 light:opacity-30 scale-105\"></picture><div class=\"absolute inset-0 bg-gradient-to-b from-gray-950/90 via-gray-950/70 to-gray-950/95 light:from-gray-50/90 light:via-gray-50/70 light:to-gray-50/95\"></div></div><!-- Content --><div class=\"relative z-10 flex flex-col items-center\"><h1 class=\"font-mono text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white light:text-gray-900 mb-6 tracking-tight drop-shadow-2xl\"><span class=\"text-blue-500 mr-2 opacity-80\">&gt;</span>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"welcome\" class=\"\"><div class=\"relative flex flex-col justify-center items-center h-screen w-full mb-16 pt-20 fade-in overflow-hidden\"><!-- Background Image with Overlay --><div class=\"absolute inset-0 z-0\"><picture><source media=\"(max-width: 640px)\" srcset=\"static/images/banner_640w.webp\" type=\"image/webp\"> <source media=\"(max-width: 1024px)\" srcset=\"static/images/banner_1024w.webp\" type=\"image/webp\"> <source srcset=\"static/images/banner_1920w.webp\" type=\"image/webp\"> <img src=\"static/images/banner.png\" alt=\"Code Banner\" class=\"w-full h-full object-cover opacity-40 light:opacity-30 scale-105\"></picture><div class=\"absolute inset-0 bg-gradient-to-b from-gray-950/90 via-gray-950/70 to-gray-950/95 light:from-gray-50/90 light:via-gray-50/70 light:to-gray-50/95\"></div></div><!-- Content --><div class=\"relative z-10 flex flex-col items-center\"><h1 class=\"font-mono text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white light:text-gray-900 mb-6 tracking-tight drop-shadow-2xl\"><span class=\"text-blue-500 mr-2 opacity-80\">&gt;</span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
-		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("@%s", handle))
+		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs("@" + handle)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/home/welcome.templ`, Line: 21, Col: 87}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/pages/home/welcome.templ`, Line: 19, Col: 75}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<span class=\"animate-pulse text-blue-500\">_</span></h1><p class=\"text-lg md:text-xl text-gray-400 light:text-gray-500 text-center max-w-2xl leading-relaxed font-light\">Building beautiful mobile experiences with Flutter and robust backend systems with Go.</p></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<span class=\"animate-pulse text-blue-500\">_</span></h1><p class=\"text-lg md:text-xl text-gray-400 light:text-gray-500 text-center max-w-2xl leading-relaxed font-light\">Building beautiful mobile experiences with Flutter and robust backend systems with Go.</p></div></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

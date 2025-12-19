@@ -1,0 +1,30 @@
+package home
+
+import "portfolio/internals/models"
+import "portfolio/web/view/components"
+
+templ BlogsSection(blogs []models.BlogModel) {
+	<section id="blogs" class="mb-16 md:mb-24">
+		<div class="flex  items-center justify-between mb-8  w-full">
+			<div class="flex items-center gap-3">
+				<div style="view-transition-name: blogs-icon">
+					@components.Icon("book-open", "w-8 h-8 text-blue-400 light:text-blue-600")
+				</div>
+				<h2 style="view-transition-name: blogs-title" class="text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800">
+					Blogs
+				</h2>
+			</div>
+			<a href="/blogs">
+				<div class="flex items-center gap-3 text-gray-400 hover:text-[var(--primary)] h-full transition-colors duration-300">
+					<p>View all</p>
+					@components.Icon("arrow-right", "w-4 h-4")
+				</div>
+			</a>
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			for _, blog := range blogs {
+				@components.BlogCard(blog)
+			}
+		</div>
+	</section>
+}
