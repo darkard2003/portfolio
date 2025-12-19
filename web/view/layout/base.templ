@@ -4,30 +4,31 @@ import "portfolio/web/view/components"
 
 templ BaseLayout(title string, nav templ.Component) {
 	<!DOCTYPE html>
-	<html lang="en" class="transition-colors duration-300" x-data :class="{ 'light': !$store.darkMode.on}">
+	<html lang="en" class="h-full transition-colors duration-300" x-data :class="{ 'light': !$store.darkMode.on}">
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<title>{ title }</title>
-			<link rel="preconnect" href="https://fonts.googleapis.com">
-			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-			<link rel="stylesheet" href="static/css/app.css"/>
-			<script src="static/js/main.js" defer></script>
-			<script src="static/scripts/alpine.min.js" defer></script>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+			<link rel="stylesheet" href="/static/css/app.css"/>
+			<script src="/static/js/main.js" defer></script>
+			<script src="/static/scripts/alpine.min.js" defer></script>
+			<script src="/static/scripts/htmx.min.js" defer></script>
 		</head>
-		<body class="light:bg-gray-50 bg-gray-950 light:text-gray-900 text-gray-50 font-sans antialiased selection:bg-blue-500/30">
+		<body class="light:bg-gray-50 bg-gray-950 light:text-gray-900 text-gray-50 font-sans antialiased selection:bg-blue-500/30 flex flex-col min-h-screen" hx-boost="true">
 			<header>
 				@nav
 			</header>
-			<main class="min-h-full">
+			<main class="flex-grow flex flex-col">
 				{ children... }
 			</main>
 			<footer class="bg-gray-800 border-t border-gray-700 py-8 mt-16 light:bg-gray-300 light:border-gray-400">
 				<div class="container mx-auto px-6">
 					<div class="max-w-4xl mx-auto text-center">
 						<p class="text-gray-400 text-sm light:text-gray-700">
-							© { "2025" } Portfolio. Made with 
+							© { "2025" } Portfolio. Made with
 							@components.Icon("heart", "w-4 h-4 mr-1 inline text-red-500")
 							using <span class="text-white font-medium light:text-gray-800">Go</span> & <span class="text-white font-medium light:text-gray-800">Templ</span>
 							by,

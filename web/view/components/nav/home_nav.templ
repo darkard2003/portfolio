@@ -1,0 +1,50 @@
+package nav
+
+import "portfolio/web/view/components"
+
+templ HomeNav() {
+	<div class="relative">
+		@BaseNav() {
+			<div>
+				<a href="/">
+					<div class="flex items-center gap-2 font-mono text-xl font-bold text-white light:text-gray-900 tracking-tight cursor-pointer">
+						<span class="text-blue-500">&gt;</span>darkard2003<span class="animate-pulse text-blue-500">_</span>
+					</div>
+				</a>
+			</div>
+			<div class="nav-items hidden md:flex flex-wrap items-center justify-center">
+				<a href="#about" class="nav-item light:text-gray-800 text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">About</a>
+				<a href="#projects" class="nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Projects</a>
+				<a href="/blogs" class="nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Blogs</a>
+				<a href="#contact" class="nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contact</a>
+				@components.ThemeToggle()
+			</div>
+			<div class="nev-menu-btn flex md:hidden ">
+				<button @click="$store.mobileMenu.toggle()" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+					<span class="sr-only">Open main menu</span>
+					<div x-show="!$store.mobileMenu.isOpen" class="block">
+						@components.Icon("hamburger", "text-white light:text-gray-800 w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500")
+					</div>
+					<div x-show="$store.mobileMenu.isOpen" class="block">
+						@components.Icon("x-mark", "text-white light:text-gray-800 w-5 h-5 hover:text-[var(--primary-color)] rounded-md text-sm font-medium transform  transition-all duration-300 animate-fade-in animate-delay-500")
+					</div>
+				</button>
+			</div>
+		}
+		<div x-show="$store.mobileMenu.isOpen" x-cloak class="md:hidden fixed top-20 left-0 w-full z-40 border-t border-gray-700" id="mobile-menu" x-transition.opacity>
+			<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-950/90 light:bg-gray-50/90 backdrop-blur-sm border-b border-gray-800">
+				<a href="#about" @click="$store.mobileMenu.close()" class="block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">About</a>
+				<a href="#projects" @click="$store.mobileMenu.close()" class="block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">Projects</a>
+				<a href="#contact" @click="$store.mobileMenu.close()" class="block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">Contact</a>
+				<button @click="$store.darkMode.toggle()" class="text-gray-300 light:text-gray-500 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">
+					<span x-show="$store.darkMode.on">
+						<p class="text-gray-300 light:text-gray-800 text-sm font-medium">Light Mode</p>
+					</span>
+					<span x-show="! $store.darkMode.on">
+						<p class="text-gray-300 light:text-gray-800 text-sm font-medium">Dark Mode</p>
+					</span>
+				</button>
+			</div>
+		</div>
+	</div>
+}

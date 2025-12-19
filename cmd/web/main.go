@@ -9,7 +9,9 @@ import (
 	"portfolio/internals/handelers"
 	"portfolio/internals/middleware"
 	"portfolio/internals/models"
+	"portfolio/internals/services"
 	"portfolio/internals/utils"
+	"portfolio/posts"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -17,6 +19,7 @@ import (
 
 var data models.DataModel
 var hosted_url string
+var postService *services.PostService
 
 func init() {
 
@@ -42,6 +45,12 @@ func init() {
 
 	data.AllSkills = utils.GetAllTechnologies(data)
 	data.ProjectTechnologies = utils.GetProjectTechnologies(data.Projects)
+
+	postService, err = services.NewPostService(posts.PostFS)
+	if err != nil {
+		log.Fatal("Error Initializing Post service")
+	}
+
 }
 
 func main() {
@@ -53,10 +62,10 @@ func main() {
 	}
 
 	fs := http.FileServer(http.Dir("static"))
-	// Apply CacheMiddleware specifically to static files
 	router.Handle("/static/", http.StripPrefix("/static/", middleware.CacheMiddleware(fs)))
 
 	router.HandleFunc("/", handelers.IndexHandeler(data))
+	router.HandleFunc("/blogs", handelers.BlogHandeler(postService))
 
 	server := &http.Server{
 		Addr: ":" + port,
