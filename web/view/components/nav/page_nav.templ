@@ -1,0 +1,14 @@
+package nav
+
+import "portfolio/web/view/components"
+
+templ PageNav() {
+	@BaseNav(
+		components.Logo("/"),
+		"page-nav",
+	) {
+		<div class="nav-items flex flex-wrap items-center justify-center">
+			@components.ThemeToggle()
+		</div>
+	}
+}

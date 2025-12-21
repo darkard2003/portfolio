@@ -1,0 +1,14 @@
+package components
+
+templ Logo(backRef string) {
+	<div>
+		<a
+			href={ backRef }
+			preload
+		>
+			<div class="flex items-center gap-2 cursor-pointer">
+				<img :src="$store.darkMode.on ? '/static/images/logo_cyan.svg' : '/static/images/logo_black.svg'" class="w-10 h-10" alt="Logo"/>
+			</div>
+		</a>
+	</div>
+}
