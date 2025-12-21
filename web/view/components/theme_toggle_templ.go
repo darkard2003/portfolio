@@ -29,7 +29,7 @@ func ThemeToggle() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button id=\"theme-toggle\" hx-preserve @click=\"$store.darkMode.toggle()\" class=\"text-gray-300 light:text-gray-500 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium\"><span x-show=\"$store.darkMode.on\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<button id=\"theme-toggle\" @click=\"$store.darkMode.toggle()\" hx-preserve style=\"view-transition-name: theme-toggle\" class=\"text-gray-300 light:text-gray-500 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium\"><span x-show=\"$store.darkMode.on\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

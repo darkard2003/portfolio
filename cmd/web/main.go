@@ -66,6 +66,7 @@ func main() {
 
 	router.Handle("/", middleware.PageCache(handelers.IndexHandeler(data, postService.Posts)))
 	router.Handle("/blogs", middleware.PageCache(handelers.BlogHandeler(postService)))
+	router.Handle("/blogs/{slug}", middleware.PageCache(handelers.ReadingHandeler(postService)))
 
 	server := &http.Server{
 		Addr: ":" + port,

@@ -9,7 +9,7 @@ import (
 	"portfolio/web/view/pages/notfound"
 )
 
-func IndexHandeler(data models.DataModel, blogs []models.BlogModel) http.HandlerFunc {
+func IndexHandeler(data models.DataModel, blogs []models.PostModel) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" {
 			w.WriteHeader(http.StatusNotFound)

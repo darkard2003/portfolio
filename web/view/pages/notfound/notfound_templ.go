@@ -44,13 +44,13 @@ func NotFoundPage() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col items-center justify-center flex-grow text-center px-4 w-full pt-20\"><h1 class=\"text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600\">404</h1><h2 class=\"text-3xl font-semibold mt-4 mb-6 text-white light:text-gray-800\">Page Not Found</h2><p class=\"text-gray-400 light:text-gray-600 max-w-md mb-8\">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p><a href=\"/\" class=\"px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium\">Go Back Home</a></div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"flex flex-col items-center justify-center flex-grow text-center px-4 w-full pt-20\"><h1 class=\"text-9xl font-bold text-gray-200 light:text-gray-800\">404</h1><h2 class=\"text-3xl font-semibold mt-4 mb-6 text-white light:text-gray-800\">Page Not Found</h2><p class=\"text-gray-400 light:text-gray-600 max-w-md mb-8\">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p><a href=\"/\" class=\"px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium\">Go Back Home</a></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = layout.BaseLayout("404 - Not Found", nav.HomeNav()).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.BaseLayout("404 - Not Found", nav.PageNav()).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

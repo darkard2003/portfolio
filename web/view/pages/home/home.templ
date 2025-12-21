@@ -4,7 +4,7 @@ import "portfolio/web/view/layout"
 import "portfolio/web/view/components/nav"
 import "portfolio/internals/models"
 
-templ HomePage(data models.DataModel, blogs []models.BlogModel) {
+templ HomePage(data models.DataModel, blogs []models.PostModel) {
 	@layout.BaseLayout("Home", nav.HomeNav()) {
 		@WelcomeSection(data.Handle)
 		<div class="container mx-auto px-6 py-16 md:py-24">

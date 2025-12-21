@@ -3,14 +3,14 @@ package home
 import "portfolio/internals/models"
 import "portfolio/web/view/components"
 
-templ BlogsSection(blogs []models.BlogModel) {
+templ BlogsSection(posts []models.PostModel) {
 	<section id="blogs" class="mb-16 md:mb-24">
 		<div class="flex  items-center justify-between mb-8  w-full">
 			<div class="flex items-center gap-3">
 				<div style="view-transition-name: blogs-icon">
-					@components.Icon("book-open", "w-8 h-8 text-blue-400 light:text-blue-600")
+					@components.Icon("pencil-square", "w-8 h-8 text-blue-400 light:text-blue-600")
 				</div>
-				<h2 style="view-transition-name: blogs-title" class="text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800">
+				<h2 style="view-transition-name: blog-heading" class="text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800">
 					Blogs
 				</h2>
 			</div>
@@ -22,8 +22,8 @@ templ BlogsSection(blogs []models.BlogModel) {
 			</a>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			for _, blog := range blogs {
-				@components.BlogCard(blog)
+			for _, post := range posts {
+				@components.PostCard(post)
 			}
 		</div>
 	</section>

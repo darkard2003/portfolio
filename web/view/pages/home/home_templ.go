@@ -12,7 +12,7 @@ import "portfolio/web/view/layout"
 import "portfolio/web/view/components/nav"
 import "portfolio/internals/models"
 
-func HomePage(data models.DataModel, blogs []models.BlogModel) templ.Component {
+func HomePage(data models.DataModel, blogs []models.PostModel) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {

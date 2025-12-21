@@ -31,7 +31,7 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><!--html lang=\"en\" class=\"h-full transition-colors duration-300 light:bg-gray-50 bg-gray-950\" x-data :class=\"{ 'light': !$store.darkMode.on}\"--><html lang=\"en\" class=\"h-full light:bg-gray-50 bg-gray-950\" x-data :class=\"{ 'light': !$store.darkMode.on}\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\" x-data :class=\"{ 'light': !$store.darkMode.on}\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta name=\"view-transition\" content=\"same-origin\"><title>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -44,7 +44,7 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</title><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\"><link rel=\"stylesheet\" href=\"/static/css/app.css\"><link rel=\"icon\" type=\"image/svg+xml\" href=\"/static/images/favicon.svg\"><script src=\"/static/js/main.js\" defer></script><script src=\"/static/scripts/alpine.min.js\" defer></script><script src=\"/static/scripts/htmx.min.js\"></script><script src=\"/static/scripts/htmx-ext-preload.js\" defer></script></head><body hx-ext=\"preload\" id=\"body\" class=\"light:bg-gray-50 bg-gray-950 light:text-gray-900 text-gray-50 font-sans antialiased selection:bg-blue-500/30 flex flex-col min-h-screen\" hx-boost=\"true\"><header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</title><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link rel=\"stylesheet\" href=\"/static/css/app.css\"><link rel=\"icon\" type=\"image/svg+xml\" href=\"/static/images/favicon.svg\"><style>\n\t\t\t\thtml {\n\t\t\t\t\tbackground-color: #030712;\n\t\t\t\t\tcolor: #f9fafb;\n\t\t\t\t}\n\t\t\t\thtml.light {\n\t\t\t\t\tbackground-color: #f9fafb;\n\t\t\t\t\tcolor: #111827;\n\t\t\t\t}\n        ::view-transition-old(root),\n        ::view-transition-new(root) {\n          mix-blend-mode: normal; \n          animation-duration: 0.3s;\n        }\n\t\t\t</style><script src=\"/static/js/main.js\" defer></script><script src=\"/static/scripts/alpine.min.js\" defer></script><script src=\"/static/scripts/htmx.min.js\" defer></script><script src=\"/static/scripts/htmx-ext-preload.js\" defer></script></head><body hx-ext=\"preload\" id=\"body\" hx-swap=\"innerHTML transition:true\" hx-boost=\"true\" class=\"font-sans antialiased selection:bg-blue-500/30 flex flex-col min-h-screen\"><header id=\"header\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -52,7 +52,7 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</header><main class=\"flex-grow flex flex-col\" hx-swap=\"innerHTML transition:true\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</header><main id=\"main-content\" class=\"flex-grow flex flex-col\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -60,36 +60,15 @@ func BaseLayout(title string, nav templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</main><footer hx-preserve id=\"footer\" class=\"bg-gray-800 border-t border-gray-700 py-8 mt-16 light:bg-gray-300 light:border-gray-400\"><div class=\"container mx-auto px-6\"><div class=\"max-w-4xl mx-auto text-center\"><p class=\"text-gray-400 text-sm light:text-gray-700\">© ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var3 string
-		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs("2025")
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/layout/base.templ`, Line: 34, Col: 18}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+		templ_7745c5c3_Err = components.Footer().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, " Portfolio. Made with")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = components.Icon("heart", "w-4 h-4 mr-1 inline text-red-500").Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "using <span class=\"text-white font-medium light:text-gray-800\">Go</span> & <span class=\"text-white font-medium light:text-gray-800\">Templ</span> by,</p><a href=\"https://github.com/darkard2003\" class=\"text-white light:text-gray-800 hover:text-blue-200 light:hover:text-blue-700  font-medium inline-flex items-center gap-1 hover:scale-105 transform transition-transform duration-300\" target=\"_blank\" rel=\"noopener noreferrer\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = components.Icon("github", "w-4 h-4").Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<p class=\"text-white light:text-gray-800 font-medium\">darkard2003</p></a></div></div></footer></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

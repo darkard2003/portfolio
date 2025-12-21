@@ -1,28 +1,33 @@
 document.addEventListener('alpine:init', () => {
-    // Dark Mode Store
     Alpine.store('darkMode', {
         on: localStorage.getItem('darkMode') === null ? true : localStorage.getItem('darkMode') === 'true',
         toggle() {
-            this.on = !this.on;
-            localStorage.setItem('darkMode', this.on);
+            const switchTheme = () => {
+                this.on = !this.on;
+                localStorage.setItem('darkMode', this.on);
 
-            // Force class update for immediate feedback
-            if (this.on) {
-                document.documentElement.classList.remove('light');
-            } else {
-                document.documentElement.classList.add('light');
+                if (this.on) {
+                    document.documentElement.classList.remove('light');
+                } else {
+                    document.documentElement.classList.add('light');
+                }
+            };
+
+            if (!document.startViewTransition) {
+                switchTheme();
+                return;
             }
+
+            document.startViewTransition(switchTheme);
         }
     });
 
-    // Mobile Menu Store
     Alpine.store('mobileMenu', {
         isOpen: false,
         toggle() { this.isOpen = !this.isOpen },
         close() { this.isOpen = false }
     });
 
-    // Project Filter Store
     Alpine.store('projectFilter', {
         selected: 'none',
         toggle(tech) {
@@ -36,7 +41,6 @@ document.addEventListener('alpine:init', () => {
         }
     });
 
-    // Navigation Store for Logo/Back Button
     Alpine.store('navigation', {
         path: window.location.pathname,
         isHome() {
@@ -48,16 +52,13 @@ document.addEventListener('alpine:init', () => {
     });
 });
 
-// HTMX Events for Robustness
 document.addEventListener('htmx:afterSwap', (event) => {
-    // Update navigation state after HTMX swap
     if (window.Alpine) {
         const nav = Alpine.store('navigation');
         if (nav) nav.updatePath();
     }
 });
 
-// Handle History Navigation (Back/Forward)
 window.addEventListener('popstate', () => {
     if (window.Alpine) {
         const nav = Alpine.store('navigation');

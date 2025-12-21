@@ -1,17 +1,20 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@source "../view";
+@source "../**/*.templ";
 
 @custom-variant light (&:where(.light, .light *));
 
+
 @layer base {
   :root {
+    color-scheme: dark;
     --primary-color: #ffffff;
     --bg-color: #111827;
   }
 
   :root.light {
+    color-scheme: light;
     --primary-color: #111827;
     --bg-color: #ffffff;
   }
@@ -24,29 +27,15 @@
     scrollbar-width: none;
   }
 
+
   html::-webkit-scrollbar {
     display: none;
-  }
-
-  /* ::view-transition { */
-  /*   background-color: var(--bg-color); */
-  /* } */
-  /**/
-  /* ::view-transition-group(root) { */
-  /*   animation-duration: 0.3s; */
-  /*   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
-  /* } */
-
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-     mix-blend-mode: normal;
-     animation-duration: 0.3s;
-     background-color: var(--bg-color,  #111827);
   }
 
   body {
     @apply font-sans;
   }
+
 }
 
 @layer utilities {
@@ -54,7 +43,6 @@
     display: none !important;
   }
 
-  /* Minimal card hover */
   .hover-lift {
     transition: transform 0.2s ease-out;
   }
@@ -62,6 +50,4 @@
   .hover-lift:hover {
     transform: translateY(-2px);
   }
-
-
 }

@@ -11,7 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import "portfolio/internals/models"
 import "portfolio/web/view/components"
 
-func BlogsSection(blogs []models.BlogModel) templ.Component {
+func BlogsSection(posts []models.PostModel) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -36,11 +36,11 @@ func BlogsSection(blogs []models.BlogModel) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Icon("book-open", "w-8 h-8 text-blue-400 light:text-blue-600").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Icon("pencil-square", "w-8 h-8 text-blue-400 light:text-blue-600").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><h2 style=\"view-transition-name: blogs-title\" class=\"text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800\">Blogs</h2></div><a href=\"/blogs\" preload><div class=\"flex items-center gap-3 text-gray-400 hover:text-[var(--primary)] h-full transition-colors duration-300\"><p>View all</p>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><h2 style=\"view-transition-name: blog-heading\" class=\"text-3xl md:text-4xl font-bold text-white tracking-tight light:text-gray-800\">Blogs</h2></div><a href=\"/blogs\" preload><div class=\"flex items-center gap-3 text-gray-400 hover:text-[var(--primary)] h-full transition-colors duration-300\"><p>View all</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -52,8 +52,8 @@ func BlogsSection(blogs []models.BlogModel) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for _, blog := range blogs {
-			templ_7745c5c3_Err = components.BlogCard(blog).Render(ctx, templ_7745c5c3_Buffer)
+		for _, post := range posts {
+			templ_7745c5c3_Err = components.PostCard(post).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
