@@ -10,7 +10,6 @@ templ HomeNav() {
 		<div class="hidden md:flex flex-wrap items-center justify-center gap-1">
 			<div class="flex items-center justify-center">
 				<a href="#about" class="nav-item light:text-gray-800 text-gray-300 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">About</a>
-				<a href="#blogs" class="nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Blogs</a>
 				<a href="#projects" class="nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Projects</a>
 				<a href="#contact" class="nav-item text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contact</a>
 			</div>
@@ -31,7 +30,6 @@ templ HomeNav() {
 	<div x-show="$store.mobileMenu.isOpen" x-cloak class="md:hidden fixed top-20 left-0 w-full z-40 border-t border-gray-700" id="mobile-menu" x-transition.opacity>
 		<div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-950/90 light:bg-gray-50/90 backdrop-blur-sm border-b border-gray-800">
 			<a href="#about" @click="$store.mobileMenu.close()" class="block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">About</a>
-			<a href="#blogs" @click="$store.mobileMenu.close()" class="block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">Blogs</a>
 			<a href="#projects" @click="$store.mobileMenu.close()" class="block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">Projects</a>
 			<a href="#contact" @click="$store.mobileMenu.close()" class="block text-gray-300 light:text-gray-800 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">Contact</a>
 			<button @click="$store.darkMode.toggle()" class="text-gray-300 light:text-gray-500 hover:text-[var(--primary-color)] px-3 py-2 rounded-md text-base font-medium">

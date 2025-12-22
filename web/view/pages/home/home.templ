@@ -10,7 +10,6 @@ templ HomePage(data models.DataModel, blogs []models.PostModel) {
 		<div class="container mx-auto px-6 py-16 md:py-24">
 			<div class="max-w-4xl mx-auto">
 				@AboutSection(data)
-				@BlogsSection(blogs)
 				@ProjectSection(data.Projects, data.ProjectTechnologies)
 				@ContactSection(data.Contacts)
 			</div>
