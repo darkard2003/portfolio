@@ -41,7 +41,10 @@ func init() {
 	}
 
 	jsonParser := json.NewDecoder(file)
-	jsonParser.Decode(&data)
+	err = jsonParser.Decode(&data)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	data.AllSkills = utils.GetAllTechnologies(data)
 	data.ProjectTechnologies = utils.GetProjectTechnologies(data.Projects)
