@@ -1,13 +1,27 @@
 package components
 
 templ Footer() {
-	<footer hx-preserve id="footer" class="bg-gray-800 border-t border-gray-700 py-8 mt-16 light:bg-gray-300 light:border-gray-400">
+	<footer
+		hx-preserve
+		id="footer"
+		class="bg-gray-800 border-t border-gray-700 py-8 mt-16 light:bg-gray-300 light:border-gray-400"
+	>
 		<div class="container mx-auto px-6">
 			<div class="max-w-4xl mx-auto text-center">
 				<p class="text-gray-400 text-sm light:text-gray-700">
-					© { "2025" } Portfolio. Made with
-					@Icon("heart", "w-4 h-4 mr-1 inline text-red-500")
-					using <span class="text-white font-medium light:text-gray-800">Go</span> & <span class="text-white font-medium light:text-gray-800">Templ</span>
+					© { "2025" } Portfolio. 
+				</p>
+				<p class="text-gray-400 text-sm light:text-gray-700">
+					Made with
+					@Icon("heart", "w-4 h-4 mr-1 ml-1 inline text-red-500")
+					using 
+					<span class="text-white font-medium light:text-gray-800">Go</span>
+					, 
+					<span class="text-white font-medium light:text-gray-800">Templ</span>
+					,
+					<span class="text-white font-medium light:text-gray-800">Tailwind</span>
+					&
+					<span class="text-white font-medium light:text-gray-800">Htmx</span>
 					by,
 				</p>
 				<a

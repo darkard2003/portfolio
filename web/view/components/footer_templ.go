@@ -36,21 +36,21 @@ func Footer() templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs("2025")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `web/view/components/footer.templ`, Line: 8, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/footer.templ`, Line: 12, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " Portfolio. Made with")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " Portfolio. </p><p class=\"text-gray-400 text-sm light:text-gray-700\">Made with")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Icon("heart", "w-4 h-4 mr-1 inline text-red-500").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Icon("heart", "w-4 h-4 mr-1 ml-1 inline text-red-500").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "using <span class=\"text-white font-medium light:text-gray-800\">Go</span> & <span class=\"text-white font-medium light:text-gray-800\">Templ</span> by,</p><a href=\"https://github.com/darkard2003\" class=\"text-white light:text-gray-800 hover:text-blue-200 light:hover:text-blue-700  font-medium inline-flex items-center gap-1 hover:scale-105 transform transition-transform duration-300\" target=\"_blank\" rel=\"noopener noreferrer\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "using  <span class=\"text-white font-medium light:text-gray-800\">Go</span> ,  <span class=\"text-white font-medium light:text-gray-800\">Templ</span> , <span class=\"text-white font-medium light:text-gray-800\">Tailwind</span> & <span class=\"text-white font-medium light:text-gray-800\">Htmx</span> by,</p><a href=\"https://github.com/darkard2003\" class=\"text-white light:text-gray-800 hover:text-blue-200 light:hover:text-blue-700  font-medium inline-flex items-center gap-1 hover:scale-105 transform transition-transform duration-300\" target=\"_blank\" rel=\"noopener noreferrer\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
