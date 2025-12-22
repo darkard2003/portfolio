@@ -68,8 +68,9 @@ func main() {
 	router.Handle("/static/", http.StripPrefix("/static/", middleware.StaticCache(fs)))
 
 	router.Handle("/", middleware.PageCache(handelers.IndexHandeler(data, postService.Posts)))
-	router.Handle("/blogs", middleware.PageCache(handelers.BlogHandeler(postService)))
-	router.Handle("/blogs/{slug}", middleware.PageCache(handelers.ReadingHandeler(postService)))
+	// TODO: Enable when blogs are ready
+	// router.Handle("/blogs", middleware.PageCache(handelers.BlogHandeler(postService)))
+	// router.Handle("/blogs/{slug}", middleware.PageCache(handelers.ReadingHandeler(postService)))
 
 	server := &http.Server{
 		Addr: ":" + port,
