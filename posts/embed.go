@@ -1,6 +1,15 @@
+//go:build !dev
+
 package posts
 
-import "embed"
+import (
+	"embed"
+	"io/fs"
+)
 
 //go:embed *.md
-var PostFS embed.FS
+var postFS embed.FS
+
+func GetPostFS() fs.FS {
+	return &postFS
+}

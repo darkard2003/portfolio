@@ -21,7 +21,11 @@ tailwind-watch:
 
 .PHONY: templ-watch
 templ-watch:
-		templ generate --watch --proxy="http://localhost:8080" --cmd="go run ./cmd/web/main.go"
+		templ generate --watch --watch-pattern='(.+\.go$$)|(.+\.templ$$)|(.+_templ\.txt$$)|(.+\.md$$)' --proxy="http://localhost:8080" --cmd="go run -tags dev ./cmd/web/main.go"
+
+.PHONY: templ-watch-release
+templ-watch-release:
+		templ generate --watch --watch-pattern='(.+\.go$$)|(.+\.templ$$)|(.+_templ\.txt$$)|(.+\.md$$)' --proxy="http://localhost:8080" --cmd="go run  ./cmd/web/main.go"
 
 .PHONY: tmux-run
 tmux-run:

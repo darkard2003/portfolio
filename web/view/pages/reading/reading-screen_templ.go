@@ -46,7 +46,7 @@ func ReadingScreen(blog models.PostModel) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<article class=\"w-full max-w-3xl px-6 py-24 md:py-32 mx-auto\"><div class=\"mb-12\"><a href=\"/blogs\" preload class=\"inline-flex items-center gap-2 text-sm text-gray-400 light:text-gray-500 hover:text-[var(--primary-color)] transition-colors duration-200 group\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<article x-data class=\"w-full max-w-3xl px-6 py-24 md:py-32 mx-auto\"><div class=\"mb-12\"><a href=\"/blogs\" preload class=\"inline-flex items-center gap-2 text-sm text-gray-400 light:text-gray-500 hover:text-[var(--primary-color)] transition-colors duration-200 group\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -145,7 +145,7 @@ func ReadingScreen(blog models.PostModel) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p></header><hr class=\"border-gray-800 light:border-gray-200 mb-12\"><section class=\"prose\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</p></header><hr class=\"border-gray-800 light:border-gray-200 mb-12\"><section class=\"prose\" :class=\"{ 'prose-invert': $store.darkMode.on }\" x-cloak>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

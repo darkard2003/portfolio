@@ -46,6 +46,10 @@ func NewPostService(filesystem fs.FS) (*PostService, error) {
 			continue
 		}
 
+		if filepath.Ext(file.Name()) != ".md" {
+			continue
+		}
+
 		content, err := fs.ReadFile(filesystem, file.Name())
 		if err != nil {
 			log.Println("Eror reading post " + file.Name())

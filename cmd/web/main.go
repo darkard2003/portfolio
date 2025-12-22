@@ -46,7 +46,7 @@ func init() {
 	data.AllSkills = utils.GetAllTechnologies(data)
 	data.ProjectTechnologies = utils.GetProjectTechnologies(data.Projects)
 
-	postService, err = services.NewPostService(posts.PostFS)
+	postService, err = services.NewPostService(posts.GetPostFS())
 	if err != nil {
 		log.Fatal("Error Initializing Post service")
 	}
