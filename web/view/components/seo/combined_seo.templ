@@ -1,0 +1,12 @@
+package seo
+
+import "portfolio/internals/models"
+
+templ PageSEO(data models.SEOModel) {
+	<title>{ data.Title } </title>
+	<meta name="description" content={ data.Description }/>
+	<link rel="canonical" href={ data.Url }/>
+	<meta name="robots" content={ data.Robots }/>
+	@TwitterSEO(data.Twitter)
+	@OGSEO(data.OG)
+}

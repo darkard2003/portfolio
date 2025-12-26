@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"portfolio/internals/models"
+	"portfolio/internals/utils"
 	"portfolio/web/view/pages/home"
 	"portfolio/web/view/pages/notfound"
 )
@@ -23,7 +24,8 @@ func IndexHandeler(data models.DataModel, blogs []models.PostModel) http.Handler
 		}
 
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		home := home.HomePage(data, blogs[:min(len(blogs), 6)])
+		seoModel := utils.GetPortfolioSEO(data)
+		home := home.HomePage(data, seoModel, blogs[:min(len(blogs), 6)])
 
 		if err := home.Render(context.Background(), w); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)

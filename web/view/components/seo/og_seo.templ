@@ -3,11 +3,11 @@ package seo
 import "portfolio/internals/models"
 
 templ OGSEO(data models.OGModel) {
-	<meta property="og:type" content="{{data.Type}}"/>
-	<meta property="og:url" content="{{data.Url}}"/>
-	<meta property="og:title" content="{{data.Title}}"/>
-	<meta property="og:description" content="{{data.Description}}"/>
+	<meta property="og:type" content={ data.Type }/>
+	<meta property="og:url" content={ data.Url }/>
+	<meta property="og:title" content={ data.Title }/>
+	<meta property="og:description" content={ data.Description }/>
 	if data.Image != "" {
-		<meta property="og:image" content="{{data.Image}}"/>
+		<meta property="og:image" content={ data.Image }/>
 	}
 }

@@ -3,10 +3,10 @@ package seo
 import "portfolio/internals/models"
 
 templ TwitterSEO(data models.TwitterModel) {
-	<meta name="twitter:card" content="{{data.Card}}"/>
-	<meta name="twitter:title" content="{{data.Title}}"/>
-	<meta name="twitter:description" content="{{data.Description}}"/>
+	<meta name="twitter:card" content={ data.Card }/>
+	<meta name="twitter:title" content={ data.Title }/>
+	<meta name="twitter:description" content={ data.Description }/>
 	if data.Image != "" {
-		<meta name="twitter:image" content="{{data.Image}}"/>
+		<meta name="twitter:image" content={ data.Image }/>
 	}
 }

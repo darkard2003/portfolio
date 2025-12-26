@@ -5,7 +5,6 @@
 
 @custom-variant light (&:where(.light, .light *));
 
-
 @layer base {
   :root {
     color-scheme: dark;

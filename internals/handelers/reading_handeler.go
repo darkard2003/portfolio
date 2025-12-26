@@ -4,10 +4,11 @@ import (
 	"log"
 	"net/http"
 	"portfolio/internals/services"
+	"portfolio/internals/utils"
 	"portfolio/web/view/pages/reading"
 )
 
-func ReadingHandeler(postService *services.PostService) http.HandlerFunc {
+func ReadingHandeler(postService *services.PostService, baseUrl string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		slug := r.PathValue("slug")
 		blog, ok := postService.PostCache[slug]
@@ -16,7 +17,8 @@ func ReadingHandeler(postService *services.PostService) http.HandlerFunc {
 			log.Printf("Not found: %s", slug)
 			return
 		}
-		screen := reading.ReadingScreen(blog)
+		seo := utils.GetReadingScreenSEO(blog, r.RequestURI)
+		screen := reading.ReadingScreen(blog, seo)
 
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		if err := screen.Render(r.Context(), w); err != nil {

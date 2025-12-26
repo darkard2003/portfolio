@@ -1,15 +1,22 @@
 package layout
 
 import "portfolio/web/view/components"
+import "portfolio/internals/models"
+import "portfolio/web/view/components/seo"
 
-templ BaseLayout(title string, nav templ.Component) {
+templ BaseLayout(title string, seoModel *models.SEOModel, nav templ.Component) {
 	<!DOCTYPE html>
 	<html lang="en" x-data :class="{ 'light': !$store.darkMode.on}">
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<meta name="view-transition" content="same-origin"/>
-			<title>{ title }</title>
+			<title>{ seoModel.Title }</title>
+			if seoModel != nil {
+				@seo.PageSEO(*seoModel)
+			} else {
+				<meta name="robots" content="noindex, follow"/>
+			}
 			<link rel="preconnect" href="https://fonts.googleapis.com"/>
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 			<link rel="stylesheet" href="/static/css/app.css"/>
@@ -25,7 +32,7 @@ templ BaseLayout(title string, nav templ.Component) {
 				}
         ::view-transition-old(root),
         ::view-transition-new(root) {
-          mix-blend-mode: normal; 
+          mix-blend-mode: normal;
           animation-duration: 0.3s;
         }
 			</style>
