@@ -18,7 +18,12 @@ func NewSEOModel(
 	image string,
 ) SEOModel {
 	ogModel := NewOGModel(ogtype, url, title, description, image)
-	twitterModel := NewTwitterModel("summary", title, description, image)
+	card_type := "summary"
+	if image != "" {
+		card_type = "summary_large_image"
+	}
+
+	twitterModel := NewTwitterModel(card_type, title, description, image)
 	return SEOModel{
 		Title:       title,
 		Description: description,

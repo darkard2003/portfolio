@@ -35,30 +35,32 @@ make run
 ## Code Style Guidelines
 
 ### Go Conventions
-- Use `gofmt` for formatting
-- Prefer snake_case for variables
-- Use `json:"-"` for unexported fields
-- Always return errors explicitly
-
-### Templ Templates
-- Use type-safe HTML templates
-- Follow component composition pattern
-- Use `@layout.BaseLayout("Page")` for layouts
+- Use `gofmt` for formatting: `gofmt -w ./...` to reformat code
+- Variable example: `var projectID string` (snake_case)
+- Unexported field example: `type User struct { id int json:"-" }`
+- Error handling example: 
+  ```go
+  if err := validateInput(); err != nil {
+    log.Fatal(err)
+  }
+  ```
 
 ### TailwindCSS
-- Use utility-first approach
-- Prioritize semantic class names
-- Use `--primary-color` for theming
+- Utility-first example: `class="p-4 bg-[var:--primary-color] text-[var:--secondary-color]"`
+- Semantic class example: `.project-card { ... }` not `.card`
+- Theming example: 
+  ```html
+  <style>
+  :root {
+    --primary-color: #3b82f6;
+  }
+  </style>
+  ```
 
 ### Naming
-- Use PascalCase for types
-- Use snake_case for variables/functions
-- Use `project-card` for components
-
-### Error Handling
-- Return errors via HTTP status codes
-- Log detailed errors to stderr
-- Use `models.DataModel` as primary data type
+- Component pattern: `project-card` (snake_case) vs `ProjectCard` (PascalCase)
+- Service example: `func FetchPosts() ([]Post, error)`
+- Type example: `type Portfolio struct { ... }`
 
 ## Project Rules
 
